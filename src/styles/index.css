@@ -220,3 +220,20 @@
 @media (prefers-reduced-motion: reduce) {
   .float-deco { translate: 0 0; transition: none; }
 }
+
+@layer components {
+  .contact-panel { @apply relative grid items-center gap-7 overflow-hidden border-[3px] border-ink bg-card p-7 sm:p-9 lg:grid-cols-[1fr_auto]; box-shadow: 8px 8px 0 var(--color-ink), 13px 13px 0 var(--color-pink); }
+  .contact-panel::before { content: ''; @apply absolute inset-y-0 right-[22%] hidden w-24 opacity-60 lg:block; background: repeating-linear-gradient(135deg,var(--color-yellow) 0 9px,transparent 9px 18px); }
+  .contact-classified { @apply absolute right-3 top-3 rotate-2 border-2 border-ink bg-lemon px-2 py-1 text-[9px] font-black tracking-[.15em]; font-family: ui-monospace, monospace; }
+  .contact-copy { @apply relative z-10; }
+  .contact-copy > p:last-of-type { @apply mt-3 max-w-2xl font-semibold leading-7 text-ink/70; }
+  .contact-email { @apply mt-6 inline-flex items-center gap-2 border-b-[3px] border-ink text-lg font-black text-ink sm:text-2xl; font-family: 'Oswald','Noto Sans KR',sans-serif; }
+  .contact-button { @apply relative z-10 justify-self-start text-base lg:justify-self-end; }
+  .contact-stamp { @apply absolute -bottom-3 -right-2 grid h-20 w-20 -rotate-12 place-items-center rounded-full border-[3px] border-ink bg-sky text-center text-sm font-black leading-tight text-card opacity-90; font-family: ui-monospace,monospace; }
+}
+
+@media (max-width: 639px) {
+  .contact-panel { box-shadow: 5px 5px 0 var(--color-ink), 8px 8px 0 var(--color-pink); }
+  .contact-classified { position: static; width: fit-content; }
+  .contact-stamp { opacity: .55; }
+}

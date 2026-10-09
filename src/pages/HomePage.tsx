@@ -13,7 +13,7 @@ export function HomePage() {
   const { language, t } = useLanguage(); const [filter, setFilter] = useState<Filter>('all'); const { hash } = useLocation()
   const featured = games.find((game) => game.featured)
   const filtered = useMemo(() => (filter === 'all' ? games : games.filter((game) => game.category === filter)).filter((game) => !game.featured), [filter])
-  useEffect(() => { if (hash === '#about') setTimeout(() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }), 0) }, [hash])
+  useEffect(() => { const section = hash.replace('#', ''); if (section === 'about' || section === 'contact') setTimeout(() => document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' }), 0) }, [hash])
   const moveHeroDecor = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (!window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const rect = event.currentTarget.getBoundingClientRect()
@@ -37,5 +37,6 @@ export function HomePage() {
       <div className="grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{filtered.map((game, index) => <Reveal key={game.id} delay={index * 80} className="h-full"><GameCard game={game} /></Reveal>)}</div>
     </Section>
     <Section id="about" className="scroll-mt-24 py-10"><Reveal><div className="about-panel"><div><p className="kicker text-ink">ABOUT THIS PLACE</p><h2 className="section-title">{t('aboutTitle')}</h2><p className="mt-3 max-w-2xl font-semibold leading-7 text-ink/75">{t('aboutText')}</p></div><div className="mt-7 flex shrink-0 gap-3 text-3xl sm:mt-0" aria-hidden><span className="deco-tile -rotate-6">🕹️</span><span className="deco-tile rotate-6">✨</span></div></div></Reveal></Section>
+    <Section id="contact" className="scroll-mt-24 py-10"><Reveal><div className="contact-panel"><div className="contact-classified" aria-hidden>CLASSIFIEDS · PLAYER 01</div><div className="contact-copy"><p className="kicker text-ink">CONTACT / SAY HELLO</p><h2 className="section-title">{t('contactTitle')}</h2><p>{t('contactText')}</p><a href="mailto:hjg1473@naver.com" className="contact-email">hjg1473@naver.com <span aria-hidden>↗</span></a></div><a href="mailto:hjg1473@naver.com" className="brutal-button tone-pink contact-button">✉ {t('emailMe')}</a><div className="contact-stamp" aria-hidden>HG<br />MAIL</div></div></Reveal></Section>
   </>
 }
