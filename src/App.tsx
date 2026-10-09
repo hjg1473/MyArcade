@@ -1,0 +1,8 @@
+import { Route, Routes } from 'react-router-dom'
+import { Layout } from './components/Layout'
+import { HomePage } from './pages/HomePage'
+import { PlayPage } from './pages/PlayPage'
+
+export function App() {
+  return <Routes><Route element={<Layout />}><Route path="/" element={<HomePage />} /><Route path="/play/:gameId" element={<PlayPage />} /><Route path="*" element={<HomePage />} /></Route></Routes>
+}

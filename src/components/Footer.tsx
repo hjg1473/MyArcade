@@ -1,0 +1,2 @@
+import { useLanguage } from '../context/LanguageContext'
+export function Footer() { const { t } = useLanguage(); return <footer className="mt-20 border-t border-ink/10 bg-white/70"><div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-sm text-ink/60 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><p>© {new Date().getFullYear()} My Arcade · {t('footer')}</p><a href="https://github.com/" target="_blank" rel="noreferrer" className="font-bold text-ink hover:text-coral">{t('github')} ↗</a></div></footer> }
