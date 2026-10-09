@@ -17,6 +17,13 @@ export const games: Game[] = [
     engine: 'Unity WebGL', playable: false,
   },
   {
+    id: 'idle-merge-miner', title: { ko: '방치형 머지 광부', en: 'Idle Merge Miner' },
+    description: { ko: '자동으로 광물을 캐고, 같은 광물을 합쳐 성장시키며 분쇄기로 코인을 버는 물리 기반 방치형 게임.', en: 'A physics-driven idle game about mining, merging minerals, and crushing them into coins.' },
+    thumbnail: 'thumbnails/idle-merge-miner.svg', category: 'game', buildPath: 'games/idle-merge-miner/index.html',
+    controls: { ko: '광물을 마우스 또는 터치로 끌기 · 업그레이드 버튼으로 채굴 능력 강화', en: 'Drag minerals with mouse or touch · Use upgrade buttons to improve mining abilities' },
+    engine: 'HTML5 Canvas · Matter.js', playable: true,
+  },
+  {
     id: 'cloud-cafe', title: { ko: '구름 카페', en: 'Cloud Café' },
     description: { ko: '하늘 손님들의 엉뚱한 주문을 맞추는 캐주얼 타임 매니지먼트 게임.', en: 'A casual time-management game serving whimsical orders in the sky.' },
     thumbnail: 'thumbnails/cloud-cafe.svg', category: 'game', buildPath: 'games/cloud-cafe/index.html',
