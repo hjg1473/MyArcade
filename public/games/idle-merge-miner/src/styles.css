@@ -260,8 +260,8 @@ body {
   .upgrade-panel {
     top: 116px;
     right: 12px;
-    left: 12px;
-    width: auto;
+    left: auto;
+    width: min(240px, calc(100vw - 24px));
     min-width: 0;
   }
 }
