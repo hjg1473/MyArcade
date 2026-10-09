@@ -2,7 +2,7 @@ import type { Language } from '../types'
 
 export const translations = {
   ko: {
-    home: '홈', about: '소개', welcome: 'HEY! WELCOME TO MY ARCADE!',
+    home: '홈', about: '소개', welcome: 'HEY! WELCOME TO HAM GROUND!',
     subtitle: '게임, 시뮬레이션, 작은 실험을 위한 장난스러운 놀이터예요.',
     browse: '게임 둘러보기', all: '전체', games: '게임', simulations: '시뮬레이션',
     play: '플레이', preview: '준비 중', demo: '샘플 콘텐츠', game: '게임', simulation: '시뮬레이션',
@@ -18,7 +18,7 @@ export const translations = {
     footer: '작은 게임, 큰 즐거움.', github: 'GitHub',
   },
   en: {
-    home: 'Home', about: 'About', welcome: 'HEY! WELCOME TO MY ARCADE!',
+    home: 'Home', about: 'About', welcome: 'HEY! WELCOME TO HAM GROUND!',
     subtitle: 'A little playground for games, simulations & experiments.',
     browse: 'Browse games', all: 'All', games: 'Games', simulations: 'Simulations',
     play: 'Play', preview: 'Coming soon', demo: 'Sample content', game: 'Game', simulation: 'Simulation',

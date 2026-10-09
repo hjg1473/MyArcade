@@ -6,9 +6,20 @@
   --color-cream: #fff8e7; --color-yellow: #ffcf56; --color-pink: #ff8f9c;
   --color-blue: #85c9ff; --color-mint: #a8e6cf; --color-ink: #282828;
   --color-card: #ffffff; --shadow-card: 5px 5px 0 var(--color-ink); --shadow-button: 3px 3px 0 var(--color-ink);
+  --pattern-x: 0px; --pattern-y: 0px;
 }
 
 @layer components {
+  .animated-pattern {
+    @apply pointer-events-none fixed -inset-10 -z-10;
+    background-color: var(--color-cream);
+    background-image: radial-gradient(circle, rgba(40, 40, 40, .14) 1.5px, transparent 1.7px);
+    background-size: 26px 26px;
+    animation: pattern-drift 26s linear infinite;
+    transform: translate3d(var(--pattern-x), var(--pattern-y), 0);
+    transition: transform 240ms ease-out;
+    will-change: background-position, transform;
+  }
   .section-shell { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
   .logo-lockup { @apply flex items-center gap-2 font-bold tracking-tight text-ink; }
   .logo-icon { @apply grid h-10 w-10 place-items-center rounded-lg border-[3px] border-ink bg-lemon text-xl transition-transform duration-200; box-shadow: var(--shadow-button); }
@@ -67,11 +78,17 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .game-card:hover, .game-card:nth-child(even):hover, .brutal-button:hover { transform: none; }
+  .animated-pattern { animation: none; transform: none; transition: none; }
+}
+
+@keyframes pattern-drift {
+  from { background-position: 0 0; }
+  to { background-position: 52px 52px; }
 }
 
 @layer base {
   html { scroll-behavior: smooth; }
-  body { @apply m-0 bg-cream font-sans text-ink antialiased; overflow-x: hidden; background-image: radial-gradient(#28282818 1.5px, transparent 1.5px); background-size: 26px 26px; }
+  body { @apply m-0 bg-cream font-sans text-ink antialiased; overflow-x: hidden; }
   h1, h2, h3, .logo-lockup { font-family: 'Fredoka', 'Pretendard', system-ui, sans-serif; }
   button, a { -webkit-tap-highlight-color: transparent; }
   :focus-visible { outline: 3px solid var(--color-blue); outline-offset: 4px; }

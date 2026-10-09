@@ -15,7 +15,7 @@ export function HomePage() {
     <Section className="pb-8 pt-9 sm:pt-12">
       <div className="hero-panel">
         <div className="deco-checks" aria-hidden /><div className="deco-star star-one" aria-hidden>★</div><div className="deco-star star-two" aria-hidden>✦</div>
-        <div className="relative max-w-3xl"><Badge tone="mint" className="mb-5 -rotate-2">PRESS START</Badge><h1 className="hero-title">HEY! WELCOME TO <span>MY ARCADE!</span></h1><p className="mt-5 max-w-xl text-base font-bold leading-7 text-ink/75 sm:text-lg">{t('subtitle')}</p><a href="#games" className="brutal-button tone-pink mt-7">{t('browse')} ↓</a></div>
+        <div className="relative max-w-3xl"><Badge tone="mint" className="mb-5 -rotate-2">PRESS START</Badge><h1 className="hero-title">HEY! WELCOME TO <span>HAM GROUND!</span></h1><p className="mt-5 max-w-xl text-base font-bold leading-7 text-ink/75 sm:text-lg">{t('subtitle')}</p><a href="#games" className="brutal-button tone-pink mt-7">{t('browse')} ↓</a></div>
       </div>
     </Section>
     <Section id="games" className="scroll-mt-24 py-8">

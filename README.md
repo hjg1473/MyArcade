@@ -1,4 +1,4 @@
-# My Arcade
+# HAM GROUND
 
 직접 만든 게임과 시뮬레이션을 전시하고 브라우저에서 실행하는 정적 개인 아케이드입니다. React, Vite, TypeScript, Tailwind CSS, HashRouter로 구성되어 있으며 백엔드는 사용하지 않습니다.
 
