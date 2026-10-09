@@ -4,18 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#26314a',
-        cream: '#fff9ed',
-        coral: '#ff7b72',
-        sky: '#62b6e7',
-        mint: '#66cdaa',
-        lemon: '#ffd166',
+        ink: 'var(--color-ink)',
+        cream: 'var(--color-cream)',
+        coral: 'var(--color-pink)',
+        sky: 'var(--color-blue)',
+        mint: 'var(--color-mint)',
+        lemon: 'var(--color-yellow)',
       },
       fontFamily: {
         sans: ['Nunito', 'Pretendard', 'ui-rounded', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        card: '0 8px 0 rgba(38,49,74,.07), 0 14px 28px rgba(38,49,74,.08)',
+        card: 'var(--shadow-card)',
       },
     },
   },

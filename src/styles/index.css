@@ -1,19 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
 @import "tailwindcss";
 @config "../../tailwind.config.js";
 
+:root {
+  --color-cream: #fff8e7; --color-yellow: #ffcf56; --color-pink: #ff8f9c;
+  --color-blue: #85c9ff; --color-mint: #a8e6cf; --color-ink: #282828;
+  --color-card: #ffffff; --shadow-card: 5px 5px 0 var(--color-ink); --shadow-button: 3px 3px 0 var(--color-ink);
+}
+
+@layer components {
+  .section-shell { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .logo-lockup { @apply flex items-center gap-2 font-bold tracking-tight text-ink; }
+  .logo-icon { @apply grid h-10 w-10 place-items-center rounded-lg border-[3px] border-ink bg-lemon text-xl transition-transform duration-200; box-shadow: var(--shadow-button); }
+  .logo-lockup:hover .logo-icon { transform: rotate(-6deg) translateY(-2px); }
+  .nav-link { @apply inline-flex rounded-lg border-2 border-transparent px-2.5 py-2 font-black text-ink transition duration-150 hover:border-ink hover:bg-white sm:px-3; }
+  .language-switch { @apply ml-1 flex rounded-lg border-2 border-ink bg-white p-1; box-shadow: 2px 2px 0 var(--color-ink); }
+  .language-switch button { @apply rounded px-2.5 py-1 text-xs font-black transition; }
+  .language-switch button.active { @apply bg-ink text-white; }
+  .brutal-button { @apply inline-flex items-center justify-center rounded-lg border-[3px] border-ink px-4 py-2.5 text-sm font-black text-ink transition duration-150; box-shadow: var(--shadow-button); }
+  .brutal-button:hover { transform: translate(-1px,-2px); box-shadow: 5px 5px 0 var(--color-ink); }
+  .brutal-button:active { transform: translate(3px,3px); box-shadow: 0 0 0 var(--color-ink); }
+  .tone-yellow { background: var(--color-yellow); }.tone-pink { background: var(--color-pink); }.tone-blue { background: var(--color-blue); }.tone-mint { background: var(--color-mint); }.tone-white { background: white; }
+  .brutal-badge { @apply inline-flex w-fit items-center rounded-md border-2 border-ink px-2.5 py-1 text-[11px] font-black uppercase tracking-wide text-ink; box-shadow: 2px 2px 0 var(--color-ink); }
+  .hero-panel { @apply relative overflow-hidden rounded-[14px] border-[3px] border-ink bg-white px-6 py-10 sm:px-10 sm:py-12; box-shadow: 7px 7px 0 var(--color-ink); }
+  .hero-title { @apply text-4xl font-bold uppercase leading-[1.03] tracking-[-.035em] text-ink sm:text-6xl lg:text-7xl; }
+  .hero-title span { @apply relative inline-block px-2; z-index: 0; }
+  .hero-title span::before { content: ''; @apply absolute inset-x-0 bottom-1 h-[42%] -rotate-1 bg-lemon; z-index: -1; }
+  .deco-checks { @apply absolute -right-6 -top-6 h-40 w-40 rotate-6 opacity-90; background: conic-gradient(var(--color-pink) 25%, white 0 50%, var(--color-pink) 0 75%, white 0); background-size: 28px 28px; border: 3px solid var(--color-ink); }
+  .deco-star { @apply absolute font-black text-ink; }
+  .star-one { @apply bottom-5 right-10 rotate-12 text-5xl text-sky; -webkit-text-stroke: 2px var(--color-ink); }
+  .star-two { @apply right-52 top-8 hidden -rotate-12 text-4xl text-coral sm:block; -webkit-text-stroke: 1px var(--color-ink); }
+  .kicker { @apply text-sm font-black uppercase tracking-[.16em] text-coral; }
+  .section-title { @apply mt-1 text-3xl font-bold uppercase text-ink sm:text-4xl; }
+  .category-tabs { @apply flex w-fit gap-2; }
+  .category-tabs button { @apply rounded-lg border-[3px] border-ink bg-white px-3.5 py-2 text-sm font-black text-ink transition duration-150; box-shadow: 3px 3px 0 var(--color-ink); }
+  .category-tabs button:hover { transform: translateY(-2px); box-shadow: 4px 5px 0 var(--color-ink); }
+  .category-tabs button[aria-pressed='true'] { @apply bg-lemon; transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--color-ink); }
+  .game-card { @apply flex min-w-0 flex-col overflow-hidden rounded-[12px] border-[3px] border-ink bg-white transition duration-200; box-shadow: var(--shadow-card); }
+  .game-card:hover { transform: translate(-2px,-6px) rotate(-.6deg); box-shadow: 8px 10px 0 var(--color-ink); }
+  .game-card:nth-child(even):hover { transform: translate(2px,-6px) rotate(.6deg); }
+  .game-card > div:first-child { border-bottom: 3px solid var(--color-ink); }
+  .sticker-play { @apply absolute -right-1 top-3 rotate-6 rounded-l-md border-y-2 border-l-2 border-ink bg-lemon px-3 py-1 text-xs font-black text-ink transition-transform; }
+  .game-card:hover .sticker-play { transform: rotate(1deg) scale(1.05); }
+  .card-cta { @apply inline-flex items-center gap-1 self-start rounded-md border-2 border-ink px-3 py-1.5 text-xs font-black uppercase text-ink; box-shadow: 2px 2px 0 var(--color-ink); }
+  .about-panel { @apply rounded-[14px] border-[3px] border-ink bg-sky p-7 sm:flex sm:items-center sm:justify-between sm:gap-12 sm:p-10; box-shadow: 6px 6px 0 var(--color-ink); }
+  .deco-tile { @apply grid h-16 w-16 place-items-center rounded-xl border-[3px] border-ink bg-white; box-shadow: 4px 4px 0 var(--color-ink); }
+  .game-window { @apply overflow-hidden rounded-[12px] border-[3px] border-ink bg-[#172033]; box-shadow: 7px 7px 0 var(--color-ink); }
+  .game-titlebar { @apply flex min-h-14 items-center gap-3 border-b-[3px] border-ink bg-sky px-3 py-2 text-sm uppercase sm:px-4; }
+  .game-titlebar > div span { @apply h-3 w-3 rounded-full border-2 border-ink; }
+  .game-titlebar > div span:nth-child(1){background:var(--color-pink)}.game-titlebar > div span:nth-child(2){background:var(--color-yellow)}.game-titlebar > div span:nth-child(3){background:var(--color-mint)}
+  .game-titlebar strong { @apply hidden truncate font-black sm:block; }
+  .info-panel { @apply rounded-[12px] border-[3px] border-ink bg-white p-6; box-shadow: var(--shadow-card); }
+  .info-panel h2 { @apply text-lg font-black text-ink; }
+  .info-panel p, .info-panel dt { @apply mt-3 text-sm leading-6 text-ink/70; }
+  .info-panel dd { @apply font-bold text-ink; }
+}
+
+@media (max-width: 639px) {
+  :root { --shadow-card: 4px 4px 0 var(--color-ink); }
+  .hero-panel { box-shadow: 5px 5px 0 var(--color-ink); }
+  .deco-checks { width: 100px; height: 100px; opacity: .45; }
+  .star-one { right: 18px; font-size: 2rem; }
+  .game-card:hover, .game-card:nth-child(even):hover { transform: translateY(-3px); box-shadow: 5px 7px 0 var(--color-ink); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .game-card:hover, .game-card:nth-child(even):hover, .brutal-button:hover { transform: none; }
+}
+
 @layer base {
   html { scroll-behavior: smooth; }
-  body { @apply m-0 bg-cream font-sans text-ink antialiased; background-image: radial-gradient(rgba(38,49,74,.07) 1px, transparent 1px); background-size: 24px 24px; }
+  body { @apply m-0 bg-cream font-sans text-ink antialiased; overflow-x: hidden; background-image: radial-gradient(#28282818 1.5px, transparent 1.5px); background-size: 26px 26px; }
+  h1, h2, h3, .logo-lockup { font-family: 'Fredoka', 'Pretendard', system-ui, sans-serif; }
   button, a { -webkit-tap-highlight-color: transparent; }
-  :focus-visible { @apply outline-none ring-4 ring-sky/35 ring-offset-2; }
-}
-@layer components {
-  .nav-link { @apply rounded-lg px-2.5 py-2 text-ink/65 transition hover:bg-white hover:text-ink sm:px-3; }
-  .game-card { @apply flex min-w-0 flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-card transition duration-200 hover:-translate-y-1 hover:border-coral/55 hover:shadow-[0_10px_0_rgba(255,123,114,.12),0_18px_32px_rgba(38,49,74,.10)]; }
-  .btn-secondary { @apply inline-flex items-center justify-center rounded-xl border-2 border-ink bg-white px-4 py-2.5 text-sm font-black text-ink shadow-[2px_3px_0_#26314a] transition hover:-translate-y-0.5; }
-  .info-panel { @apply rounded-2xl border border-ink/10 bg-white p-6 shadow-sm; }
-  .info-panel h2 { @apply text-lg font-black text-ink; }
-  .info-panel p, .info-panel dt { @apply mt-3 text-sm leading-6 text-ink/60; }
-  .info-panel dd { @apply font-bold text-ink/80; }
+  :focus-visible { outline: 3px solid var(--color-blue); outline-offset: 4px; }
 }

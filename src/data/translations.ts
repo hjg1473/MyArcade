@@ -2,8 +2,8 @@ import type { Language } from '../types'
 
 export const translations = {
   ko: {
-    home: '홈', about: '소개', welcome: 'Welcome to My Arcade!',
-    subtitle: '직접 만든 게임, 시뮬레이션, 작은 실험들을 모아두는 공간이에요.',
+    home: '홈', about: '소개', welcome: 'HEY! WELCOME TO MY ARCADE!',
+    subtitle: '게임, 시뮬레이션, 작은 실험을 위한 장난스러운 놀이터예요.',
     browse: '게임 둘러보기', all: '전체', games: '게임', simulations: '시뮬레이션',
     play: '플레이', preview: '준비 중', demo: '샘플 콘텐츠', game: '게임', simulation: '시뮬레이션',
     aboutTitle: '작고 친근한 디지털 놀이터',
@@ -18,8 +18,8 @@ export const translations = {
     footer: '작은 게임, 큰 즐거움.', github: 'GitHub',
   },
   en: {
-    home: 'Home', about: 'About', welcome: 'Welcome to My Arcade!',
-    subtitle: "A little collection of games, simulations, and experiments I've made.",
+    home: 'Home', about: 'About', welcome: 'HEY! WELCOME TO MY ARCADE!',
+    subtitle: 'A little playground for games, simulations & experiments.',
     browse: 'Browse games', all: 'All', games: 'Games', simulations: 'Simulations',
     play: 'Play', preview: 'Coming soon', demo: 'Sample content', game: 'Game', simulation: 'Simulation',
     aboutTitle: 'A small, friendly digital playground',
