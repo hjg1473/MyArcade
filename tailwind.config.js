@@ -10,9 +10,10 @@ export default {
         sky: 'var(--color-blue)',
         mint: 'var(--color-mint)',
         lemon: 'var(--color-yellow)',
+        card: 'var(--color-card)',
       },
       fontFamily: {
-        sans: ['Nunito', 'Pretendard', 'ui-rounded', 'system-ui', 'sans-serif'],
+        sans: ['Noto Sans KR', 'Pretendard', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         card: 'var(--shadow-card)',

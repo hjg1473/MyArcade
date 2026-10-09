@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { GameCard } from '../components/GameCard'
 import { useLanguage } from '../context/LanguageContext'
@@ -14,11 +14,19 @@ export function HomePage() {
   const featured = games.find((game) => game.featured)
   const filtered = useMemo(() => (filter === 'all' ? games : games.filter((game) => game.category === filter)).filter((game) => !game.featured), [filter])
   useEffect(() => { if (hash === '#about') setTimeout(() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }), 0) }, [hash])
+  const moveHeroDecor = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const rect = event.currentTarget.getBoundingClientRect()
+    event.currentTarget.style.setProperty('--hero-x', `${(((event.clientX - rect.left) / rect.width) - .5) * 10}px`)
+    event.currentTarget.style.setProperty('--hero-y', `${(((event.clientY - rect.top) / rect.height) - .5) * 10}px`)
+  }
+  const resetHeroDecor = (event: ReactPointerEvent<HTMLDivElement>) => { event.currentTarget.style.setProperty('--hero-x', '0px'); event.currentTarget.style.setProperty('--hero-y', '0px') }
   return <>
     <Section className="pb-10 pt-9 sm:pt-12">
-      <div className="hero-panel hero-upgraded">
+      <div className="hero-panel hero-upgraded" onPointerMove={moveHeroDecor} onPointerLeave={resetHeroDecor}>
         <div className="deco-checks" aria-hidden />
-        <div className="hero-copy"><Badge tone="mint" className="mb-5 -rotate-2 sticker-wiggle">PRESS START</Badge><h1 className="hero-title"><span className="hero-hey">HEY!</span> WELCOME TO <span className="hero-brand">HAM GROUND!</span></h1><p className="mt-5 max-w-xl text-base font-bold leading-7 text-ink/75 sm:text-lg">{t('subtitle')}</p><a href="#games" className="brutal-button tone-pink mt-7">{t('browse')} ↓</a></div>
+        <div className="cover-edition" aria-hidden>ISSUE 001 · OCT 2026</div><div className="cover-price" aria-hidden>₩ FREE</div>
+        <div className="hero-copy"><Badge tone="mint" className="mb-5 -rotate-2 sticker-wiggle">ARCADE SPECIAL!</Badge><h1 className="hero-title"><span className="hero-hey">HEY!</span> WELCOME TO <span className="hero-brand">HAM GROUND!</span></h1><p className="mt-5 max-w-xl text-base font-bold leading-7 text-ink/75 sm:text-lg">{t('subtitle')}</p><a href="#games" className="brutal-button tone-pink mt-7">PLAY NOW! ↓</a><div className="cover-barcode" aria-hidden><span /><small>9 771996 091025</small></div></div>
         <div className="hero-collage" aria-hidden><span className="float-deco deco-heart">♥</span><span className="float-deco deco-bolt">ϟ</span><span className="float-deco deco-smile">☺</span><span className="float-deco deco-gamepad">🎮</span><span className="float-deco deco-arrow">↘</span><span className="float-deco deco-spark">✦</span></div>
       </div>
     </Section>

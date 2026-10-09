@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Noto+Sans+KR:wght@400;600;700;800;900&family=Oswald:wght@500;600;700&display=swap');
 @import "tailwindcss";
 @config "../../tailwind.config.js";
 
 :root {
-  --color-cream: #fff8e7; --color-yellow: #ffcf56; --color-pink: #ff8f9c;
-  --color-blue: #85c9ff; --color-mint: #a8e6cf; --color-ink: #282828;
-  --color-card: #ffffff; --shadow-card: 5px 5px 0 var(--color-ink); --shadow-button: 3px 3px 0 var(--color-ink);
+  --color-cream: #f2e8d5; --color-yellow: #e9b44c; --color-pink: #d65a45;
+  --color-blue: #477b83; --color-mint: #b8c2af; --color-ink: #302b2a;
+  --color-card: #f8f1e4; --shadow-card: 5px 5px 0 var(--color-ink); --shadow-button: 3px 3px 0 var(--color-ink);
   --pattern-x: 0px; --pattern-y: 0px;
 }
 
@@ -89,7 +89,7 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body { @apply m-0 bg-cream font-sans text-ink antialiased; overflow-x: hidden; }
-  h1, h2, h3, .logo-lockup { font-family: 'Fredoka', 'Pretendard', system-ui, sans-serif; }
+  h1, h2, h3, .logo-lockup { font-family: 'Oswald', 'Noto Sans KR', sans-serif; }
   button, a { -webkit-tap-highlight-color: transparent; }
   :focus-visible { outline: 3px solid var(--color-blue); outline-offset: 4px; }
 }
@@ -149,4 +149,74 @@
   .float-deco, .sticker-wiggle:hover { animation: none; }
   .reveal, .reveal.is-visible { opacity: 1; transform: none; transition: none; }
   .featured-card:hover { transform: none; }
+}
+
+/* Retro arcade magazine refinement */
+@layer components {
+  .print-texture {
+    @apply pointer-events-none fixed inset-0 -z-[9];
+    opacity: .17;
+    mix-blend-mode: multiply;
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E"),
+      repeating-linear-gradient(115deg, transparent 0 13px, rgba(48,43,42,.035) 13px 14px);
+  }
+  .logo-lockup { font-family: 'Bungee', 'Noto Sans KR', sans-serif; letter-spacing: -.035em; }
+  .brutal-badge, .kicker, .cartridge-meta, .cover-edition, .cover-price, .cover-barcode, .marquee-group span { font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; }
+  .section-title, .featured-copy h2, .game-card h3 { font-family: 'Oswald', 'Noto Sans KR', sans-serif; letter-spacing: -.025em; }
+  .hero-panel { border-radius: 3px; }
+  .hero-upgraded {
+    --hero-x: 0px; --hero-y: 0px;
+    min-height: 445px;
+    background:
+      radial-gradient(circle at 82% 28%, rgba(48,43,42,.18) 1.4px, transparent 1.6px) 0 0/12px 12px,
+      linear-gradient(105deg, var(--color-card) 0 68%, var(--color-yellow) 68% 100%);
+    box-shadow: 8px 8px 0 var(--color-ink), 14px 14px 0 var(--color-pink);
+  }
+  .hero-upgraded::after { content: ''; @apply pointer-events-none absolute bottom-0 left-0 h-4 w-[68%]; background: repeating-linear-gradient(90deg,var(--color-ink) 0 18px,var(--color-pink) 18px 36px,var(--color-yellow) 36px 54px); }
+  .hero-copy { padding-top: 1.5rem; }
+  .hero-title { font-family: 'Bungee', 'Noto Sans KR', sans-serif; font-size: clamp(2.5rem,6.3vw,5.8rem); line-height: .98; letter-spacing: -.055em; text-shadow: 3px 3px 0 rgba(214,90,69,.32); }
+  .hero-hey { border-radius: 0; background: var(--color-blue); color: var(--color-card); box-shadow: 4px 4px 0 var(--color-ink), 7px 7px 0 var(--color-yellow); }
+  .hero-brand { border-radius: 0; box-shadow: 5px 5px 0 var(--color-ink); }
+  .cover-edition { @apply absolute left-5 top-4 z-10 border-b-2 border-ink pb-1 text-[10px] font-black tracking-[.16em] sm:left-8; }
+  .cover-price { @apply absolute right-4 top-4 z-10 rotate-3 border-2 border-ink bg-card px-2 py-1 text-[10px] font-black; box-shadow: 2px 2px 0 var(--color-ink); }
+  .cover-barcode { @apply mt-8 hidden w-fit rotate-1 sm:block; }
+  .cover-barcode span { @apply block h-8 w-32 border-x-2 border-ink; background: repeating-linear-gradient(90deg,var(--color-ink) 0 2px,transparent 2px 4px,var(--color-ink) 4px 5px,transparent 5px 8px); }
+  .cover-barcode small { @apply block pt-1 text-[8px] tracking-[.22em]; }
+  .float-deco { border-radius: 2px; translate: var(--hero-x) var(--hero-y); transition: translate 280ms ease-out; }
+  .deco-bolt, .deco-arrow { translate: calc(0px - var(--hero-x)) calc(0px - var(--hero-y)); }
+  .deco-checks { opacity: .38; background: repeating-linear-gradient(135deg,var(--color-pink) 0 10px,var(--color-card) 10px 20px); }
+  .marquee-stack { @apply border-y-[4px] py-1; background: var(--color-pink); box-shadow: 0 6px 0 var(--color-ink); }
+  .marquee-stack::before { content: 'ADVERTISEMENT'; @apply absolute right-3 top-1 z-10 bg-lemon px-2 py-0.5 text-[8px] font-black tracking-[.18em] text-ink; font-family: ui-monospace, monospace; }
+  .marquee-reverse { border-top: 2px dashed rgba(242,232,213,.55); }
+  .marquee-group span { color: var(--color-card); font-weight: 900; }
+  .marquee-group span.accent { color: var(--color-yellow); }
+  .featured-card { border-radius: 3px; box-shadow: 8px 8px 0 var(--color-ink), 13px 13px 0 var(--color-yellow); }
+  .featured-media { background: var(--color-blue); }
+  .featured-media::after { content: 'HAM GROUND / FEATURE 01'; @apply absolute bottom-3 right-3 border-2 border-ink bg-card px-2 py-1 text-[9px] font-black tracking-[.12em]; font-family: ui-monospace, monospace; }
+  .featured-copy { background: var(--color-yellow); background-image: repeating-linear-gradient(135deg,transparent 0 15px,rgba(48,43,42,.045) 15px 17px); }
+  .featured-copy h2 { font-size: clamp(2.8rem,6vw,5.6rem); }
+  .game-card { position: relative; border-radius: 4px; background: var(--color-card); box-shadow: 6px 7px 0 var(--color-ink); }
+  .game-card::before { content: ''; @apply absolute inset-x-0 top-0 z-10 h-2; background: repeating-linear-gradient(90deg,var(--color-yellow) 0 20px,var(--color-pink) 20px 40px,var(--color-blue) 40px 60px); }
+  .game-card:hover { transform: translate(-2px,-7px) rotate(-1.15deg); box-shadow: 9px 12px 0 var(--color-ink); }
+  .reveal:nth-child(3n+2) .game-card:hover { transform: translate(2px,-7px) rotate(1.1deg); }
+  .reveal:nth-child(3n) .game-card::before { background: repeating-linear-gradient(90deg,var(--color-blue) 0 26px,var(--color-yellow) 26px 52px); }
+  .cartridge-body { @apply relative; background: linear-gradient(180deg,var(--color-card),#ede1cb); }
+  .category-simulation .cartridge-body { background: linear-gradient(180deg,#e4e5d9,#cbd4ca); }
+  .cartridge-meta { @apply mb-3 flex justify-between border-b border-ink/35 pb-2 text-[8px] font-black tracking-[.12em] text-ink/65; }
+  .sticker-play { border-radius: 0; background: var(--color-pink); color: var(--color-card); }
+  .card-cta { border-radius: 0; }
+  .about-panel { border-radius: 3px; background: linear-gradient(100deg,var(--color-card) 0 76%,var(--color-blue) 76%); box-shadow: 7px 7px 0 var(--color-ink); }
+  .game-window, .info-panel { border-radius: 3px; }
+}
+
+@media (max-width: 767px) {
+  .hero-upgraded { min-height: 420px; background: linear-gradient(165deg,var(--color-card) 0 78%,var(--color-yellow) 78%); box-shadow: 5px 5px 0 var(--color-ink), 9px 9px 0 var(--color-pink); }
+  .hero-upgraded::after { width: 100%; }
+  .cover-edition { top: .75rem; }
+  .about-panel { background: linear-gradient(165deg,var(--color-card) 0 86%,var(--color-blue) 86%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-deco { translate: 0 0; transition: none; }
 }

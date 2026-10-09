@@ -42,14 +42,14 @@ export function InteractiveBackground() {
             }
           }
           context.beginPath(); context.arc(dotX, dotY, 1.45, 0, Math.PI * 2)
-          context.fillStyle = 'rgba(40,40,40,.14)'; context.fill()
+          context.fillStyle = 'rgba(48,43,42,.115)'; context.fill()
         }
       }
 
       for (let index = ripples.length - 1; index >= 0; index -= 1) {
         const ripple = ripples[index]
         context.beginPath(); context.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2)
-        context.strokeStyle = `rgba(40,40,40,${ripple.opacity})`; context.lineWidth = 2; context.stroke()
+        context.strokeStyle = `rgba(48,43,42,${ripple.opacity})`; context.lineWidth = 2; context.stroke()
         ripple.radius += 1.4; ripple.opacity -= 0.008
         if (ripple.opacity <= 0) ripples.splice(index, 1)
       }
