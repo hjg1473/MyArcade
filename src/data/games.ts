@@ -7,7 +7,7 @@ export const games: Game[] = [
     description: { ko: '바구니를 움직여 떨어지는 별을 모으는 짧은 HTML5 데모 게임입니다.', en: 'A tiny HTML5 demo about catching falling stars in your basket.' },
     thumbnail: 'thumbnails/star-catcher.svg', category: 'game', buildPath: 'games/star-catcher/index.html',
     controls: { ko: '← → 또는 A D로 이동 · 모바일에서는 화면 아래 버튼 사용', en: 'Move with ← → or A D · On mobile, use the buttons below the game' },
-    engine: 'HTML5 Canvas', releaseDate: '2026-10-09', playable: true,
+    engine: 'HTML5 Canvas', releaseDate: '2026-10-09', playable: true, featured: true,
   },
   {
     id: 'tiny-garden', title: { ko: '조그만 정원', en: 'Tiny Garden' },

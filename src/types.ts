@@ -13,5 +13,6 @@ export interface Game {
   engine?: string
   releaseDate?: string
   playable: boolean
+  featured?: boolean
   keyboardOnly?: boolean
 }
