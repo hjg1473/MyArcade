@@ -92,8 +92,8 @@
   .project-heading p { @apply mt-3 max-w-3xl font-semibold leading-7 text-ink/70; }
   .project-serial { @apply hidden shrink-0 rotate-2 border-2 border-ink bg-lemon px-3 py-2 text-[10px] font-black tracking-[.12em] sm:block; font-family: ui-monospace,monospace; box-shadow: 3px 3px 0 var(--color-ink); }
   .download-stage { @apply grid overflow-hidden border-[3px] border-ink bg-card lg:grid-cols-[1.15fr_.85fr]; box-shadow: 8px 8px 0 var(--color-ink), 14px 14px 0 var(--color-blue); }
-  .download-art { @apply min-h-[280px] border-b-[3px] border-ink lg:border-b-0 lg:border-r-[3px]; background: var(--color-blue); }
-  .download-art img { @apply h-full w-full object-cover; }
+  .download-art { @apply flex min-h-[280px] items-center justify-center overflow-hidden border-b-[3px] border-ink lg:border-b-0 lg:border-r-[3px]; background: var(--color-ink); }
+  .download-art img { @apply block h-full max-h-full w-full object-contain; }
   .download-copy { @apply flex flex-col justify-center p-7 sm:p-10; background: repeating-linear-gradient(135deg,var(--color-yellow) 0 16px,#e4aa3c 16px 18px); }
   .download-copy h2 { @apply mt-2 text-3xl font-black uppercase leading-tight sm:text-5xl; }
   .download-copy > p:not(.kicker) { @apply mt-4 font-semibold leading-7 text-ink/75; }
