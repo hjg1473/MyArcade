@@ -18,4 +18,13 @@ export const games: Game[] = [
     controls: { ko: 'Windows PC에서 ZIP 압축을 푼 뒤 실행 파일을 실행해 주세요.', en: 'On a Windows PC, extract the ZIP and launch the executable.' },
     engine: 'Unity', platform: 'Windows', playable: false,
   },
+  {
+    id: 'blackhole-tde-simulation', title: { ko: '블랙홀 TDE 시뮬레이션', en: 'Black Hole TDE Simulation' },
+    description: { ko: '블랙홀 주변에서 일어나는 조석 파괴 현상을 시각화한 Windows 시뮬레이션입니다.', en: 'A Windows simulation visualizing a tidal disruption event around a black hole.' },
+    longDescription: { ko: '별이 블랙홀의 강한 조석력에 의해 변형되고 붕괴되는 TDE(Tidal Disruption Event)를 시각적으로 살펴볼 수 있도록 제작한 Unity 시뮬레이션입니다. 웹 빌드가 아닌 Windows 실행 파일이며, ZIP을 내려받아 압축을 푼 뒤 Blackhole.exe를 실행할 수 있습니다.', en: 'A Unity simulation created to visualize a tidal disruption event, where a star is deformed and disrupted by the intense tidal forces around a black hole. This is a downloadable Windows build; download the ZIP, extract it, and launch Blackhole.exe.' },
+    thumbnail: 'thumbnails/blackhole-tde-simulation.svg', category: 'simulation', delivery: 'download',
+    downloadPath: 'downloads/blackhole-tde-simulation.zip', downloadFileName: 'Blackhole TDE Simulation.zip', downloadSize: '94 MB',
+    controls: { ko: 'Windows PC에서 ZIP 압축을 푼 뒤 Blackhole.exe를 실행해 주세요.', en: 'On a Windows PC, extract the ZIP and launch Blackhole.exe.' },
+    engine: 'Unity', platform: 'Windows', playable: false,
+  },
 ]
