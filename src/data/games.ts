@@ -36,4 +36,13 @@ export const games: Game[] = [
     controls: { ko: 'Roblox 기본 이동 조작으로 계단을 따라 올라가세요.', en: 'Use the standard Roblox movement controls to climb the course.' },
     engine: 'Roblox Studio', platform: 'Roblox · PC / Mobile', releaseDate: '2026-09-28', playable: true,
   },
+  {
+    id: 'loan-game', title: { ko: '대출해서 돈 버는 게임', en: 'Make Money with Loans' },
+    description: { ko: '대출과 돈 벌기를 소재로 만든 Android 모바일 게임입니다.', en: 'An Android mobile game built around loans and making money.' },
+    longDescription: { ko: '대출과 자금 운용이라는 독특한 소재를 가볍게 풀어낸 모바일 게임입니다. 별도의 파일을 받을 필요 없이 공식 Google Play 스토어에서 Android 기기에 설치할 수 있습니다.', en: 'A mobile game with a playful take on loans and managing money. No separate file download is needed; install it on an Android device from the official Google Play Store.' },
+    thumbnail: 'thumbnails/loan-game.webp', category: 'game', delivery: 'googleplay',
+    externalUrl: 'https://play.google.com/store/apps/details?id=com.hygeonstudio.loangame&hl=ko',
+    controls: { ko: 'Android 기기의 터치 화면으로 조작합니다.', en: 'Play using the touchscreen on an Android device.' },
+    engine: 'Mobile Game', platform: 'Android · Google Play', playable: true,
+  },
 ]
