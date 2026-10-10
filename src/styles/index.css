@@ -100,6 +100,9 @@
   .download-meta { @apply my-6 flex flex-wrap gap-2; }
   .download-meta span { @apply border-2 border-ink bg-card px-3 py-1 text-xs font-black; box-shadow: 2px 2px 0 var(--color-ink); }
   .download-button { @apply self-start text-base; }
+  .roblox-stage { box-shadow: 8px 8px 0 var(--color-ink), 14px 14px 0 var(--color-pink); }
+  .roblox-stage .download-copy { background: repeating-linear-gradient(135deg,var(--color-blue) 0 16px,#3e7078 16px 18px); color: var(--color-card); }
+  .roblox-stage .download-copy .kicker { color: var(--color-card); }
   .project-content { @apply grid gap-5 md:grid-cols-2; }
   .project-about { @apply md:col-span-2; background: linear-gradient(105deg,var(--color-card) 0 82%,var(--color-yellow) 82%); }
   .project-about h2 { @apply mt-1 text-3xl uppercase; }

@@ -6,12 +6,12 @@ import { Badge } from './ui'
 export function GameCard({ game }: { game: Game }) {
   const { language, t } = useLanguage()
   const serial = `HG-${game.id.replace(/[^a-z0-9]/gi, '').slice(0, 6).toUpperCase()}`
-  const action = game.delivery === 'download' ? t('download') : t('play')
+  const action = game.delivery === 'download' ? t('download') : game.delivery === 'roblox' ? t('playRoblox') : t('play')
   return <Link to={`/play/${game.id}`} className={`game-card group category-${game.category}`} aria-label={`${game.title[language]} — ${action}`}>
     <div className="relative aspect-video overflow-hidden bg-sky/15">
-      <img src={`${import.meta.env.BASE_URL}${game.thumbnail}`} alt="" loading="lazy" className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+      <img src={`${import.meta.env.BASE_URL}${game.thumbnail}`} alt="" loading="lazy" className={`h-full w-full transition duration-300 group-hover:scale-[1.03] ${game.delivery === 'roblox' ? 'bg-ink object-contain' : 'object-cover'}`} />
       <span className="sticker-play" aria-hidden>{game.delivery === 'download' ? 'GET IT!' : 'PLAY!'}</span>
-      <Badge tone="white" className="absolute left-3 top-3">{game.delivery === 'download' ? 'WINDOWS' : 'WEB'}</Badge>
+      <Badge tone="white" className="absolute left-3 top-3">{game.delivery === 'download' ? 'WINDOWS' : game.delivery === 'roblox' ? 'ROBLOX' : 'WEB'}</Badge>
     </div>
     <div className="cartridge-body flex flex-1 flex-col p-4 sm:p-5">
       <div className="cartridge-meta"><span>HAM GROUND™</span><span>{serial}</span></div>

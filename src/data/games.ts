@@ -27,4 +27,13 @@ export const games: Game[] = [
     controls: { ko: 'Windows PC에서 ZIP 압축을 푼 뒤 Blackhole.exe를 실행해 주세요.', en: 'On a Windows PC, extract the ZIP and launch Blackhole.exe.' },
     engine: 'Unity', platform: 'Windows', playable: false,
   },
+  {
+    id: 'go-west', title: { ko: 'Go West ~ 계단을 오르다 ~', en: 'Go West ~ Climb the Stairs ~' },
+    description: { ko: '하늘 높이 이어지는 계단을 따라 서쪽으로 달려가는 Roblox 체험입니다.', en: 'A Roblox experience about running westward along a staircase stretching high into the sky.' },
+    longDescription: { ko: '밝고 경쾌한 하늘 위 코스를 달리며 계속해서 계단을 오르는 Roblox 프로젝트입니다. 설치 파일을 내려받을 필요 없이 공식 Roblox 게임 페이지에서 바로 실행할 수 있습니다.', en: 'A Roblox project about racing upward through a bright sky course and continuing to climb. No separate download is required; launch it directly from the official Roblox game page.' },
+    thumbnail: 'thumbnails/go-west.png', category: 'game', delivery: 'roblox',
+    externalUrl: 'https://www.roblox.com/ko/games/92155393757517/Go-West',
+    controls: { ko: 'Roblox 기본 이동 조작으로 계단을 따라 올라가세요.', en: 'Use the standard Roblox movement controls to climb the course.' },
+    engine: 'Roblox Studio', platform: 'Roblox · PC / Mobile', releaseDate: '2026-09-28', playable: true,
+  },
 ]

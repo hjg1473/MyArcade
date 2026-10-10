@@ -1,7 +1,7 @@
 export type Language = 'ko' | 'en'
 export type LocalizedText = Record<Language, string>
 export type GameCategory = 'game' | 'simulation'
-export type GameDelivery = 'web' | 'download'
+export type GameDelivery = 'web' | 'download' | 'roblox'
 
 export interface Game {
   id: string
@@ -14,6 +14,7 @@ export interface Game {
   downloadPath?: string
   downloadFileName?: string
   downloadSize?: string
+  externalUrl?: string
   controls: LocalizedText
   longDescription: LocalizedText
   gallery?: string[]
