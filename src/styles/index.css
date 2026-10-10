@@ -169,7 +169,7 @@
   .marquee { @apply overflow-hidden whitespace-nowrap; }
   .marquee-reverse { @apply mt-1 border-t border-white/30 pt-1; }
   .marquee-track { @apply flex w-max will-change-transform; }
-  .marquee-group { @apply flex min-w-[100vw] shrink-0 items-center justify-around; }
+  .marquee-group { @apply flex shrink-0 items-center; }
   .marquee-group span { @apply px-4 font-black uppercase tracking-[.09em] text-white sm:px-7 sm:text-lg; font-family: 'Fredoka', sans-serif; }
   .marquee-group span.accent { @apply text-lemon; }
   .featured-card { @apply grid overflow-hidden rounded-[14px] border-[3px] border-ink bg-white transition duration-200 lg:grid-cols-[1.2fr_.8fr]; box-shadow: 8px 8px 0 var(--color-ink); }

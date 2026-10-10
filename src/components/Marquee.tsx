@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const items = ['PLAY', '★', 'EXPLORE', '🎮', 'CREATE', '✦', 'REPEAT', '♥']
 
@@ -6,6 +6,21 @@ export function Marquee({ reverse = false }: { reverse?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null)
   const groupRef = useRef<HTMLDivElement>(null)
   const slowRef = useRef(false)
+  const [copies, setCopies] = useState(2)
+
+  useEffect(() => {
+    const group = groupRef.current
+    if (!group) return
+    const updateCopies = () => {
+      const groupWidth = group.offsetWidth
+      if (groupWidth > 0) setCopies(Math.max(2, Math.ceil(window.innerWidth / groupWidth) + 1))
+    }
+    const observer = new ResizeObserver(updateCopies)
+    observer.observe(group)
+    window.addEventListener('resize', updateCopies)
+    updateCopies()
+    return () => { observer.disconnect(); window.removeEventListener('resize', updateCopies) }
+  }, [])
 
   useEffect(() => {
     const track = trackRef.current; const group = groupRef.current
@@ -30,5 +45,5 @@ export function Marquee({ reverse = false }: { reverse?: boolean }) {
   }, [reverse])
 
   const group = (key: string, ref?: React.RefObject<HTMLDivElement | null>) => <div key={key} ref={ref} className="marquee-group">{items.map((item, index) => <span key={`${key}-${index}`} className={index % 2 ? 'accent' : ''}>{item}</span>)}</div>
-  return <div className={`marquee ${reverse ? 'marquee-reverse' : ''}`} onMouseEnter={() => { slowRef.current = true }} onMouseLeave={() => { slowRef.current = false }}><div ref={trackRef} className="marquee-track">{group('a', groupRef)}{group('b')}</div></div>
+  return <div className={`marquee ${reverse ? 'marquee-reverse' : ''}`} onMouseEnter={() => { slowRef.current = true }} onMouseLeave={() => { slowRef.current = false }}><div ref={trackRef} className="marquee-track">{Array.from({ length: copies }, (_, index) => group(`group-${index}`, index === 0 ? groupRef : undefined))}</div></div>
 }
