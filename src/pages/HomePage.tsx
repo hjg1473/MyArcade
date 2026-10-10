@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type PointerEvent as ReactPointerEvent } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { GameCard } from '../components/GameCard'
 import { useLanguage } from '../context/LanguageContext'
 import { games } from '../data/games'
@@ -7,12 +7,12 @@ import type { GameCategory } from '../types'
 import { Badge, Section } from '../components/ui'
 import { Marquee } from '../components/Marquee'
 import { Reveal } from '../components/Reveal'
+import { FeaturedCarousel } from '../components/FeaturedCarousel'
 
 type Filter = 'all' | GameCategory
 export function HomePage() {
   const { language, t } = useLanguage(); const [filter, setFilter] = useState<Filter>('all'); const { hash } = useLocation()
-  const featured = games.find((game) => game.featured)
-  const filtered = useMemo(() => (filter === 'all' ? games : games.filter((game) => game.category === filter)).filter((game) => !game.featured), [filter])
+  const filtered = useMemo(() => filter === 'all' ? games : games.filter((game) => game.category === filter), [filter])
   useEffect(() => { const section = hash.replace('#', ''); if (section === 'about' || section === 'contact') setTimeout(() => document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' }), 0) }, [hash])
   const moveHeroDecor = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (!window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -32,7 +32,7 @@ export function HomePage() {
     </Section>
     <div className="marquee-stack" aria-label="Play, explore, create, repeat"><Marquee /><Marquee reverse /></div>
     <Section id="games" className="scroll-mt-24 py-8">
-      {featured && <Reveal className="mb-14"><article className="featured-card group"><div className="featured-media"><img src={`${import.meta.env.BASE_URL}${featured.thumbnail}`} alt="" /><Badge tone="pink" className="featured-sticker sticker-wiggle">★ FEATURED</Badge></div><div className="featured-copy"><p className="kicker text-ink">THE MAIN EVENT</p><h2>{featured.title[language]}</h2><p>{featured.description[language]}</p><div className="mt-6 flex flex-wrap items-center gap-3"><Link to={`/play/${featured.id}`} className="brutal-button tone-yellow featured-play">PLAY NOW! <span aria-hidden>→</span></Link><Badge tone="blue">{featured.engine}</Badge></div></div></article></Reveal>}
+      <Reveal className="mb-14"><FeaturedCarousel games={games} /></Reveal>
       <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="kicker">★ Select a game</p><h2 className="section-title">{t('browse')}</h2></div><div className="category-tabs" role="group" aria-label="Game category filter">{(['all', 'game', 'simulation'] as Filter[]).map((item) => <button key={item} onClick={() => setFilter(item)} aria-pressed={filter === item}>{item === 'all' ? t('all') : item === 'game' ? t('games') : t('simulations')}</button>)}</div></div>
       <div className="grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{filtered.map((game, index) => <Reveal key={game.id} delay={index * 80} className="h-full"><GameCard game={game} /></Reveal>)}</div>
     </Section>

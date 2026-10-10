@@ -75,6 +75,61 @@
   .game-card:hover, .game-card:nth-child(even):hover { transform: translateY(-3px); box-shadow: 5px 7px 0 var(--color-ink); }
 }
 
+/* Multi-game carousel and project detail pages */
+@layer components {
+  .featured-carousel { @apply relative overflow-hidden pb-14; }
+  .featured-track { @apply flex transition-transform duration-700 ease-out; will-change: transform; }
+  .featured-slide { @apply w-full shrink-0; }
+  .carousel-controls { @apply absolute bottom-1 left-1/2 flex -translate-x-1/2 items-center gap-3; }
+  .carousel-controls > button { @apply grid h-9 w-9 place-items-center border-2 border-ink bg-card text-lg font-black transition; box-shadow: 2px 2px 0 var(--color-ink); }
+  .carousel-controls > button:hover { transform: translateY(-2px); box-shadow: 3px 4px 0 var(--color-ink); }
+  .carousel-controls > button:active { transform: translate(2px,2px); box-shadow: none; }
+  .carousel-dots { @apply flex items-center gap-2 border-2 border-ink bg-card px-3 py-2; box-shadow: 2px 2px 0 var(--color-ink); }
+  .carousel-dots button { @apply h-2.5 w-6 border-2 border-ink bg-white transition-all; }
+  .carousel-dots button.active { @apply w-10 bg-coral; }
+  .project-heading { @apply relative flex items-start justify-between gap-6 border-b-[3px] border-ink pb-7; }
+  .project-heading h1 { @apply mt-4 text-4xl font-black uppercase leading-tight text-ink sm:text-6xl; }
+  .project-heading p { @apply mt-3 max-w-3xl font-semibold leading-7 text-ink/70; }
+  .project-serial { @apply hidden shrink-0 rotate-2 border-2 border-ink bg-lemon px-3 py-2 text-[10px] font-black tracking-[.12em] sm:block; font-family: ui-monospace,monospace; box-shadow: 3px 3px 0 var(--color-ink); }
+  .download-stage { @apply grid overflow-hidden border-[3px] border-ink bg-card lg:grid-cols-[1.15fr_.85fr]; box-shadow: 8px 8px 0 var(--color-ink), 14px 14px 0 var(--color-blue); }
+  .download-art { @apply min-h-[280px] border-b-[3px] border-ink lg:border-b-0 lg:border-r-[3px]; background: var(--color-blue); }
+  .download-art img { @apply h-full w-full object-cover; }
+  .download-copy { @apply flex flex-col justify-center p-7 sm:p-10; background: repeating-linear-gradient(135deg,var(--color-yellow) 0 16px,#e4aa3c 16px 18px); }
+  .download-copy h2 { @apply mt-2 text-3xl font-black uppercase leading-tight sm:text-5xl; }
+  .download-copy > p:not(.kicker) { @apply mt-4 font-semibold leading-7 text-ink/75; }
+  .download-meta { @apply my-6 flex flex-wrap gap-2; }
+  .download-meta span { @apply border-2 border-ink bg-card px-3 py-1 text-xs font-black; box-shadow: 2px 2px 0 var(--color-ink); }
+  .download-button { @apply self-start text-base; }
+  .project-content { @apply grid gap-5 md:grid-cols-2; }
+  .project-about { @apply md:col-span-2; background: linear-gradient(105deg,var(--color-card) 0 82%,var(--color-yellow) 82%); }
+  .project-about h2 { @apply mt-1 text-3xl uppercase; }
+  .detail-section { @apply border-t-[4px] border-ink pt-6; }
+  .detail-heading h2 { @apply mt-1 text-3xl font-black uppercase sm:text-4xl; }
+  .gallery-grid { @apply mt-6 grid gap-5 md:grid-cols-3; }
+  .gallery-grid figure, .gallery-placeholder { @apply aspect-video overflow-hidden border-[3px] border-ink bg-card; box-shadow: 5px 5px 0 var(--color-ink); }
+  .gallery-grid figure img { @apply h-full w-full object-cover; }
+  .gallery-placeholder { @apply flex flex-col justify-between p-4; background: radial-gradient(circle,rgba(48,43,42,.2) 1.3px,transparent 1.5px) 0 0/14px 14px,var(--color-card); }
+  .gallery-placeholder span { @apply self-start border-2 border-ink bg-lemon px-2 py-1 text-[9px] font-black tracking-[.14em]; font-family: ui-monospace,monospace; }
+  .gallery-placeholder strong { @apply bg-card/95 p-2 text-sm; }
+  .video-placeholder, .video-ready { @apply mt-6 flex min-h-48 items-center justify-center gap-5 border-[3px] border-ink bg-ink p-6 text-card; box-shadow: 7px 7px 0 var(--color-pink); }
+  .video-placeholder > span, .video-ready > span { @apply grid h-16 w-16 shrink-0 place-items-center rounded-full border-[3px] border-card bg-coral text-2xl; }
+  .video-placeholder strong, .video-ready strong { @apply text-xl font-black tracking-wide; }
+  .video-placeholder p { @apply mt-2 max-w-xl text-sm font-semibold text-card/70; }
+  .video-ready:hover { transform: translateY(-3px); box-shadow: 9px 10px 0 var(--color-pink); }
+}
+
+@media (max-width: 639px) {
+  .featured-copy h2 { font-size: 2.4rem; }
+  .download-stage { box-shadow: 5px 5px 0 var(--color-ink), 9px 9px 0 var(--color-blue); }
+  .download-art { min-height: 210px; }
+  .video-placeholder { @apply flex-col text-center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-track { transition: none; }
+  .video-ready:hover { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .game-card:hover, .game-card:nth-child(even):hover, .brutal-button:hover { transform: none; }

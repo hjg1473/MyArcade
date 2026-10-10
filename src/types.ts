@@ -1,6 +1,7 @@
 export type Language = 'ko' | 'en'
 export type LocalizedText = Record<Language, string>
 export type GameCategory = 'game' | 'simulation'
+export type GameDelivery = 'web' | 'download'
 
 export interface Game {
   id: string
@@ -8,11 +9,18 @@ export interface Game {
   description: LocalizedText
   thumbnail: string
   category: GameCategory
-  buildPath: string
+  delivery: GameDelivery
+  buildPath?: string
+  downloadPath?: string
+  downloadFileName?: string
+  downloadSize?: string
   controls: LocalizedText
+  longDescription: LocalizedText
+  gallery?: string[]
+  youtubeUrl?: string
+  platform?: string
   engine?: string
   releaseDate?: string
   playable: boolean
-  featured?: boolean
   keyboardOnly?: boolean
 }

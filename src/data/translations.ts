@@ -15,7 +15,10 @@ export const translations = {
     missingTitle: '게임을 찾을 수 없어요', missingText: '주소가 잘못되었거나 게임 정보가 변경되었어요.',
     loadError: '게임을 불러오지 못했어요. 빌드 파일 경로를 확인해 주세요.',
     keyboardNotice: '이 게임은 키보드 조작이 필요해 모바일에서는 플레이하기 어려울 수 있어요.',
-    loading: '게임을 불러오는 중…', builtWith: '제작 엔진', released: '공개일',
+    loading: '게임을 불러오는 중…', builtWith: '제작 엔진', released: '공개일', platform: '플랫폼',
+    download: '다운로드', downloadWindows: 'Windows 빌드 다운로드', downloadGuide: 'ZIP 파일을 내려받아 압축을 푼 뒤 실행 파일을 실행하세요.', fileSize: '파일 크기',
+    aboutGame: '프로젝트 소개', gallery: '게임 이미지', galleryEmpty: '이미지를 곧 추가할 예정이에요.', video: '게임 영상', videoEmpty: 'YouTube 영상을 업로드하면 이곳에서 바로 볼 수 있어요.', watchYoutube: 'YouTube에서 보기',
+    featuredGames: 'FEATURED GAMES', previous: '이전 게임', next: '다음 게임', slideOf: '번째 슬라이드',
     footer: '작은 게임, 큰 즐거움.', github: 'GitHub',
   },
   en: {
@@ -32,7 +35,10 @@ export const translations = {
     missingTitle: 'Game not found', missingText: 'The link may be incorrect or the game information has changed.',
     loadError: 'The game could not be loaded. Please check the build path.',
     keyboardNotice: 'This game needs a keyboard, so it may be difficult to play on mobile.',
-    loading: 'Loading game…', builtWith: 'Engine', released: 'Released',
+    loading: 'Loading game…', builtWith: 'Engine', released: 'Released', platform: 'Platform',
+    download: 'Download', downloadWindows: 'Download for Windows', downloadGuide: 'Download the ZIP, extract it, and launch the executable.', fileSize: 'File size',
+    aboutGame: 'About this project', gallery: 'Game images', galleryEmpty: 'More images will be added here soon.', video: 'Game video', videoEmpty: 'A YouTube video will appear here after it is uploaded.', watchYoutube: 'Watch on YouTube',
+    featuredGames: 'FEATURED GAMES', previous: 'Previous game', next: 'Next game', slideOf: 'slide',
     footer: 'Small games, big fun.', github: 'GitHub',
   },
 } satisfies Record<Language, Record<string, string>>

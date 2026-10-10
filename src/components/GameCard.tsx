@@ -6,17 +6,18 @@ import { Badge } from './ui'
 export function GameCard({ game }: { game: Game }) {
   const { language, t } = useLanguage()
   const serial = `HG-${game.id.replace(/[^a-z0-9]/gi, '').slice(0, 6).toUpperCase()}`
-  return <Link to={`/play/${game.id}`} className={`game-card group category-${game.category}`} aria-label={`${game.title[language]} — ${game.playable ? t('play') : t('preview')}`}>
+  const action = game.delivery === 'download' ? t('download') : t('play')
+  return <Link to={`/play/${game.id}`} className={`game-card group category-${game.category}`} aria-label={`${game.title[language]} — ${action}`}>
     <div className="relative aspect-video overflow-hidden bg-sky/15">
       <img src={`${import.meta.env.BASE_URL}${game.thumbnail}`} alt="" loading="lazy" className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
-      <span className="sticker-play" aria-hidden>{game.playable ? 'PLAY!' : 'SOON!'}</span>
-      {!game.playable && <Badge tone="white" className="absolute left-3 top-3">{t('demo')}</Badge>}
+      <span className="sticker-play" aria-hidden>{game.delivery === 'download' ? 'GET IT!' : 'PLAY!'}</span>
+      <Badge tone="white" className="absolute left-3 top-3">{game.delivery === 'download' ? 'WINDOWS' : 'WEB'}</Badge>
     </div>
     <div className="cartridge-body flex flex-1 flex-col p-4 sm:p-5">
       <div className="cartridge-meta"><span>HAM GROUND™</span><span>{serial}</span></div>
       <div className="mb-2 flex items-start justify-between gap-3"><h3 className="text-xl font-black leading-tight text-ink">{game.title[language]}</h3><Badge tone={game.category === 'game' ? 'pink' : 'mint'}>{t(game.category)}</Badge></div>
       <p className="line-clamp-2 text-sm leading-6 text-ink/65">{game.description[language]}</p>
-      <span className={`card-cta mt-5 ${game.playable ? 'bg-lemon' : 'bg-[#e6e6e6] text-ink/60'}`}>{game.playable ? `${t('play')} NOW!` : t('preview')} <span aria-hidden>→</span></span>
+      <span className="card-cta mt-5 bg-lemon">{action} <span aria-hidden>→</span></span>
     </div>
   </Link>
 }

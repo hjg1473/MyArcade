@@ -20,6 +20,10 @@ npm run preview
 
 ## 게임 추가하기
 
+게임은 브라우저에서 바로 실행하는 `web` 방식과 ZIP을 내려받는 `download` 방식을 지원합니다. 두 방식 모두 카드, 자동 캐러셀, `#/play/{gameId}` 상세 페이지가 데이터에서 자동 생성됩니다.
+
+### 웹 게임
+
 1. 게임 빌드 전체를 `public/games/{gameId}/`에 넣습니다. 진입 파일은 `index.html`이어야 합니다.
 2. 16:9 썸네일을 `public/thumbnails/`에 추가합니다.
 3. `src/data/games.ts`에 `Game` 객체 하나를 추가합니다.
@@ -31,8 +35,12 @@ npm run preview
   description: { ko: '한국어 설명', en: 'English description' },
   thumbnail: 'thumbnails/my-game.webp',
   category: 'game', // 또는 'simulation'
+  delivery: 'web',
   buildPath: 'games/my-game/index.html',
   controls: { ko: '방향키로 이동', en: 'Move with arrow keys' },
+  longDescription: { ko: '상세한 프로젝트 설명', en: 'A longer project description' },
+  gallery: ['screenshots/my-game-01.webp'],
+  youtubeUrl: 'https://www.youtube.com/watch?v=...', // 선택 사항
   engine: 'Unity WebGL',
   releaseDate: '2026-10-09',
   playable: true,
@@ -40,7 +48,30 @@ npm run preview
 }
 ```
 
-`playable: false`인 항목은 샘플/준비 중 안내만 표시하며 iframe을 실행하지 않습니다. 모바일 조작이 어려운 게임은 `keyboardOnly: true`를 지정하세요. 데이터 추가만으로 홈 카드와 `#/play/{gameId}` 상세 페이지가 자동 생성됩니다.
+모바일 조작이 어려운 게임은 `keyboardOnly: true`를 지정하세요. `gallery`를 비워 두면 상세 페이지에 향후 이미지를 넣을 수 있는 슬롯이 표시되고, `youtubeUrl`을 비워 두면 영상 준비 중 영역이 표시됩니다.
+
+### Windows 다운로드 게임
+
+ZIP 파일을 `public/downloads/`에 넣고 다음처럼 등록합니다.
+
+```ts
+{
+  id: 'my-windows-game',
+  title: { ko: '내 Windows 게임', en: 'My Windows Game' },
+  description: { ko: '짧은 설명', en: 'Short description' },
+  longDescription: { ko: '상세 설명', en: 'Long description' },
+  thumbnail: 'thumbnails/my-windows-game.webp',
+  category: 'simulation',
+  delivery: 'download',
+  downloadPath: 'downloads/my-windows-game.zip',
+  downloadFileName: 'My Windows Game.zip',
+  downloadSize: '120 MB',
+  controls: { ko: '압축 해제 후 실행', en: 'Extract and launch' },
+  engine: 'Unity',
+  platform: 'Windows',
+  playable: false,
+}
+```
 
 ### 엔진별 참고
 
@@ -76,5 +107,6 @@ src/context/         언어 상태와 localStorage 연동
 src/data/            게임 및 번역 데이터
 src/pages/           홈/플레이 페이지
 public/games/        실제 게임 빌드
+public/downloads/    다운로드용 Windows 빌드 ZIP
 public/thumbnails/   게임 썸네일
 ```
