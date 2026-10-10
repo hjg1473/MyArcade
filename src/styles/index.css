@@ -174,9 +174,9 @@
   .marquee-group span.accent { @apply text-lemon; }
   .featured-card { @apply grid overflow-hidden rounded-[14px] border-[3px] border-ink bg-white transition duration-200 lg:grid-cols-[1.2fr_.8fr]; box-shadow: 8px 8px 0 var(--color-ink); }
   .featured-card:hover { transform: translate(-2px,-5px) rotate(-.35deg); box-shadow: 11px 13px 0 var(--color-ink); }
-  .featured-media { @apply relative min-h-[260px] overflow-hidden border-b-[3px] border-ink bg-sky lg:border-b-0 lg:border-r-[3px]; }
-  .featured-media img { @apply h-full w-full object-cover transition duration-300; }
-  .featured-card:hover .featured-media img { transform: scale(1.035); }
+  .featured-media { @apply relative flex min-h-[260px] items-center justify-center overflow-hidden border-b-[3px] border-ink lg:border-b-0 lg:border-r-[3px]; background: var(--color-ink); }
+  .featured-media img { @apply block h-full max-h-full w-full object-contain transition duration-300; }
+  .featured-card:hover .featured-media img { filter: saturate(1.06) contrast(1.02); }
   .featured-sticker { @apply absolute left-4 top-4 rotate-[-5deg] text-sm; }
   .featured-copy { @apply flex flex-col justify-center bg-mint p-6 sm:p-8; }
   .featured-copy h2 { @apply mt-2 text-4xl font-bold uppercase leading-none sm:text-5xl; }
