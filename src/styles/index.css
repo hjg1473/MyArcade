@@ -88,6 +88,8 @@
   .carousel-dots button { @apply h-2.5 w-6 border-2 border-ink bg-white transition-all; }
   .carousel-dots button.active { @apply w-10 bg-coral; }
   .project-heading { @apply relative flex items-start justify-between gap-6 border-b-[3px] border-ink pb-7; }
+  .project-heading-copy { @apply flex min-w-0 flex-col items-start gap-5 sm:flex-row; }
+  .project-icon { @apply h-20 w-20 shrink-0 border-[3px] border-ink object-cover sm:h-24 sm:w-24; box-shadow: 4px 4px 0 var(--color-ink); }
   .project-heading h1 { @apply mt-4 text-4xl font-black uppercase leading-tight text-ink sm:text-6xl; }
   .project-heading p { @apply mt-3 max-w-3xl font-semibold leading-7 text-ink/70; }
   .project-serial { @apply hidden shrink-0 rotate-2 border-2 border-ink bg-lemon px-3 py-2 text-[10px] font-black tracking-[.12em] sm:block; font-family: ui-monospace,monospace; box-shadow: 3px 3px 0 var(--color-ink); }
@@ -115,6 +117,9 @@
   .gallery-grid { @apply mt-6 grid gap-5 md:grid-cols-3; }
   .gallery-grid figure, .gallery-placeholder { @apply aspect-video overflow-hidden border-[3px] border-ink bg-card; box-shadow: 5px 5px 0 var(--color-ink); }
   .gallery-grid figure img { @apply h-full w-full object-cover; }
+  .portrait-gallery { @apply mx-auto max-w-5xl; }
+  .portrait-gallery figure { aspect-ratio: 9 / 16; background: var(--color-ink); }
+  .portrait-gallery figure img { object-fit: contain; }
   .gallery-placeholder { @apply flex flex-col justify-between p-4; background: radial-gradient(circle,rgba(48,43,42,.2) 1.3px,transparent 1.5px) 0 0/14px 14px,var(--color-card); }
   .gallery-placeholder span { @apply self-start border-2 border-ink bg-lemon px-2 py-1 text-[9px] font-black tracking-[.14em]; font-family: ui-monospace,monospace; }
   .gallery-placeholder strong { @apply bg-card/95 p-2 text-sm; }

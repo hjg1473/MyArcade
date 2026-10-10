@@ -8,6 +8,7 @@ export interface Game {
   title: LocalizedText
   description: LocalizedText
   thumbnail: string
+  icon?: string
   category: GameCategory
   delivery: GameDelivery
   buildPath?: string
@@ -18,6 +19,7 @@ export interface Game {
   controls: LocalizedText
   longDescription: LocalizedText
   gallery?: string[]
+  galleryPortrait?: boolean
   youtubeUrl?: string
   platform?: string
   engine?: string
