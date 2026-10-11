@@ -20,6 +20,7 @@ export function PlayPage() {
   const isGooglePlay = game.delivery === 'googleplay'
   const externalTitle = isGooglePlay ? t('getGooglePlay') : t('playRoblox')
   const externalGuide = isGooglePlay ? t('googlePlayGuide') : t('robloxGuide')
+  const youtubeEmbedUrl = game.youtubeUrl ? getYouTubeEmbedUrl(game.youtubeUrl) : ''
 
   return <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <ButtonLink to="/" tone="white">← {t('back')}</ButtonLink>
@@ -31,9 +32,19 @@ export function PlayPage() {
     <div className="project-content mt-10"><section className="info-panel project-about"><p className="kicker">EDITORIAL FEATURE</p><h2>{t('aboutGame')}</h2><p>{game.longDescription[language]}</p></section><section className="info-panel"><h2>{t('controls')}</h2><p>{game.controls[language]}</p></section><section className="info-panel"><h2>{t('details')}</h2><dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 text-sm"><dt>{t('builtWith')}</dt><dd>{game.engine ?? '—'}</dd><dt>{t('platform')}</dt><dd>{game.platform ?? 'Web'}</dd><dt>{t('released')}</dt><dd>{game.releaseDate ?? '—'}</dd>{game.downloadSize && <><dt>{t('fileSize')}</dt><dd>{game.downloadSize}</dd></>}</dl></section></div>
 
     <section className="detail-section mt-12"><div className="detail-heading"><p className="kicker">SCREENSHOT ARCHIVE</p><h2>{t('gallery')}</h2></div><div className={`gallery-grid ${game.galleryPortrait ? 'portrait-gallery' : ''}`}>{game.gallery?.length ? game.gallery.map((image, index) => <figure key={image}><img src={`${import.meta.env.BASE_URL}${image}`} alt={`${game.title[language]} screenshot ${index + 1}`} loading="lazy" /></figure>) : [1, 2, 3].map((slot) => <div key={slot} className="gallery-placeholder"><span>IMAGE SLOT / 0{slot}</span><strong>{t('galleryEmpty')}</strong></div>)}</div></section>
-    <section className="detail-section video-section mt-12"><div className="detail-heading"><p className="kicker">VIDEO CHANNEL</p><h2>{t('video')}</h2></div>{game.youtubeUrl ? <a href={game.youtubeUrl} target="_blank" rel="noreferrer" className="video-ready"><span aria-hidden>▶</span><strong>{t('watchYoutube')}</strong></a> : <div className="video-placeholder"><span aria-hidden>▶</span><div><strong>YOUTUBE VIDEO SLOT</strong><p>{t('videoEmpty')}</p></div></div>}</section>
+    <section className="detail-section video-section mt-12"><div className="detail-heading"><p className="kicker">VIDEO CHANNEL</p><h2>{t('video')}</h2></div>{youtubeEmbedUrl ? <div className="video-player"><iframe src={youtubeEmbedUrl} title={`${game.title[language]} ${t('video')}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /></div> : <div className="video-placeholder"><span aria-hidden>▶</span><div><strong>YOUTUBE VIDEO SLOT</strong><p>{t('videoEmpty')}</p></div></div>}</section>
     <div className="mt-12 text-center"><ButtonLink to="/" tone="yellow">← {t('back')}</ButtonLink></div>
   </div>
+}
+
+function getYouTubeEmbedUrl(url: string) {
+  try {
+    const parsed = new URL(url)
+    const videoId = parsed.hostname === 'youtu.be' ? parsed.pathname.slice(1) : parsed.searchParams.get('v')
+    return videoId && /^[\w-]{11}$/.test(videoId) ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0` : ''
+  } catch {
+    return ''
+  }
 }
 
 function Status({ title, text }: { title: string; text: string }) { const { t } = useLanguage(); return <div className="mx-auto grid min-h-[60vh] max-w-xl place-items-center px-4 text-center"><div className="info-panel"><div className="text-5xl">🧩</div><h1 className="mt-5 text-3xl font-black text-ink">{title}</h1><p className="mt-3 text-ink/70">{text}</p><ButtonLink to="/" className="mt-7">← {t('back')}</ButtonLink></div></div> }
