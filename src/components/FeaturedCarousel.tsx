@@ -28,23 +28,35 @@ export function FeaturedCarousel({ games }: { games: Game[] }) {
 
   return <section className="featured-carousel" aria-roledescription="carousel" aria-label={t('featuredGames')} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}>
     <div className="featured-track" style={{ transform: `translateX(-${active * 100}%)` }}>
-      {games.map((game, index) => <article key={game.id} className="featured-card featured-slide" aria-hidden={index !== active}>
-        <div className={`featured-media ${game.youtubeUrl ? 'featured-media-video' : ''}`}>{index === active && game.youtubeUrl ? <iframe src={getTrailerEmbedUrl(game.youtubeUrl, !reducedMotion)} title={`${game.title[language]} trailer`} allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /> : <img src={`${import.meta.env.BASE_URL}${game.thumbnail}`} alt="" />}<Badge tone={game.delivery === 'download' ? 'blue' : 'pink'} className="featured-sticker sticker-wiggle">★ {game.youtubeUrl ? 'WATCH TRAILER' : game.delivery === 'download' ? 'PC DOWNLOAD' : game.delivery === 'roblox' ? 'ROBLOX EXPERIENCE' : game.delivery === 'googleplay' ? 'ANDROID RELEASE' : 'PLAY ONLINE'}</Badge></div>
-        <div className="featured-copy"><p className="kicker text-ink">HAM GROUND SELECTS · 0{index + 1}</p><h2>{game.title[language]}</h2><p>{game.description[language]}</p><div className="mt-6 flex flex-wrap items-center gap-3"><Link to={`/play/${game.id}`} className="brutal-button tone-yellow featured-play">{game.delivery === 'download' ? t('download') : game.delivery === 'roblox' ? t('playRoblox') : game.delivery === 'googleplay' ? t('getGooglePlay') : game.delivery === 'video' ? t('watchProject') : `${t('play')} NOW!`} <span aria-hidden>→</span></Link><Badge tone="white">{game.engine}</Badge></div></div>
-      </article>)}
+      {games.map((game, index) => {
+        const videoId = getYouTubeId(game.youtubeUrl)
+        const mediaImage = videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : `${import.meta.env.BASE_URL}${game.thumbnail}`
+        const isShort = game.youtubeUrl?.includes('/shorts/') ?? false
+        return <article key={game.id} className={`featured-card featured-slide ${isShort ? 'featured-short' : ''}`} aria-hidden={index !== active}>
+          <div className="featured-backdrop" aria-hidden="true"><img src={mediaImage} alt="" /></div>
+          <div className="featured-media">{index === active && videoId ? <iframe src={getTrailerEmbedUrl(videoId, !reducedMotion)} title={`${game.title[language]} trailer`} allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /> : <img src={mediaImage} alt="" />}</div>
+          <div className="featured-shade" aria-hidden="true" />
+          <Badge tone={game.delivery === 'download' ? 'blue' : 'pink'} className="featured-sticker sticker-wiggle">★ {videoId ? 'WATCH TRAILER' : game.delivery === 'download' ? 'PC DOWNLOAD' : game.delivery === 'roblox' ? 'ROBLOX EXPERIENCE' : game.delivery === 'googleplay' ? 'ANDROID RELEASE' : 'PLAY ONLINE'}</Badge>
+          <div className="featured-copy"><p className="kicker">HAM GROUND SELECTS · 0{index + 1}</p><h2>{game.title[language]}</h2><p>{game.description[language]}</p><div className="mt-6 flex flex-wrap items-center gap-3"><Link to={`/play/${game.id}`} className="brutal-button tone-yellow featured-play">{game.delivery === 'download' ? t('download') : game.delivery === 'roblox' ? t('playRoblox') : game.delivery === 'googleplay' ? t('getGooglePlay') : game.delivery === 'video' ? t('watchProject') : `${t('play')} NOW!`} <span aria-hidden>→</span></Link><Badge tone="white">{game.engine}</Badge></div></div>
+        </article>
+      })}
     </div>
     {games.length > 1 && <div className="carousel-controls"><button type="button" onClick={() => move(-1)} aria-label={t('previous')}>←</button><div className="carousel-dots">{games.map((game, index) => <button key={game.id} type="button" className={index === active ? 'active' : ''} onClick={() => setActive(index)} aria-label={`${game.title[language]} ${t('slideOf')} ${index + 1}`} aria-current={index === active ? 'true' : undefined} />)}</div><button type="button" onClick={() => move(1)} aria-label={t('next')}>→</button></div>}
   </section>
 }
 
-function getTrailerEmbedUrl(url: string, autoplay: boolean) {
+function getYouTubeId(url?: string) {
+  if (!url) return ''
   try {
     const parsed = new URL(url)
     const videoId = parsed.hostname === 'youtu.be' ? parsed.pathname.slice(1) : parsed.pathname.startsWith('/shorts/') ? parsed.pathname.split('/')[2] : parsed.searchParams.get('v')
-    if (!videoId || !/^[\w-]{11}$/.test(videoId)) return ''
-    const auto = autoplay ? '1' : '0'
-    return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${auto}&mute=1&loop=1&playlist=${videoId}&playsinline=1&rel=0`
+    return videoId && /^[\w-]{11}$/.test(videoId) ? videoId : ''
   } catch {
     return ''
   }
+}
+
+function getTrailerEmbedUrl(videoId: string, autoplay: boolean) {
+  const auto = autoplay ? '1' : '0'
+  return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${auto}&mute=1&loop=1&playlist=${videoId}&playsinline=1&rel=0`
 }
