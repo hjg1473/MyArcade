@@ -273,7 +273,6 @@
   .marquee-group span { color: var(--color-card); font-weight: 900; }
   .marquee-group span.accent { color: var(--color-yellow); }
   .featured-card { border-radius: 3px; box-shadow: 8px 8px 0 var(--color-ink), 13px 13px 0 var(--color-yellow); }
-  .featured-media::after { content: 'HAM GROUND / FEATURE 01'; @apply absolute bottom-3 right-3 border-2 border-ink bg-card px-2 py-1 text-[9px] font-black tracking-[.12em]; font-family: ui-monospace, monospace; }
   .featured-copy h2 { font-size: clamp(2.8rem,6vw,5.2rem); }
   .game-card { position: relative; border-radius: 4px; background: var(--color-card); box-shadow: 6px 7px 0 var(--color-ink); }
   .game-card::before { content: ''; @apply absolute inset-x-0 top-0 z-10 h-2; background: repeating-linear-gradient(90deg,var(--color-yellow) 0 20px,var(--color-pink) 20px 40px,var(--color-blue) 40px 60px); }
