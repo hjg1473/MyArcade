@@ -197,7 +197,7 @@
   .featured-media img { @apply h-full w-full object-cover transition duration-300; }
   .featured-media iframe { @apply pointer-events-none h-full w-full border-0; }
   .featured-short .featured-media { @apply justify-end pr-[12%]; }
-  .featured-short .featured-media iframe { width: min(42%, 430px); }
+  .featured-short .featured-media iframe { width: auto; height: 100%; aspect-ratio: 9 / 16; }
   .featured-shade { @apply pointer-events-none absolute inset-0 -z-[1]; background: linear-gradient(90deg,rgba(27,24,23,.96) 0%,rgba(27,24,23,.82) 30%,rgba(27,24,23,.28) 58%,rgba(27,24,23,.12) 100%),linear-gradient(0deg,rgba(27,24,23,.72) 0%,transparent 48%); }
   .featured-card:hover .featured-media img { filter: saturate(1.06) contrast(1.02); }
   .featured-sticker { @apply pointer-events-none absolute right-5 top-5 z-[2] rotate-[3deg] text-sm; }
@@ -317,7 +317,7 @@
   .featured-copy { @apply justify-end pb-10 pt-24; }
   .featured-copy h2 { font-size: 2.4rem; }
   .featured-short .featured-media { @apply items-start justify-center p-0; }
-  .featured-short .featured-media iframe { width: min(68%, 380px); height: 72%; }
+  .featured-short .featured-media iframe { width: auto; height: 72%; aspect-ratio: 9 / 16; }
   .featured-shade { background: linear-gradient(0deg,rgba(27,24,23,.98) 0%,rgba(27,24,23,.88) 38%,rgba(27,24,23,.14) 78%,rgba(27,24,23,.08) 100%); }
   .featured-sticker { @apply right-3 top-3 text-xs; }
 }
