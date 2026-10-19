@@ -44,6 +44,7 @@ export const games: Game[] = [
     longDescription: { ko: '밝고 경쾌한 하늘 위 코스를 달리며 계속해서 계단을 오르는 Roblox 프로젝트입니다. 설치 파일을 내려받을 필요 없이 공식 Roblox 게임 페이지에서 바로 실행할 수 있습니다.', en: 'A Roblox project about racing upward through a bright sky course and continuing to climb. No separate download is required; launch it directly from the official Roblox game page.' },
     thumbnail: 'thumbnails/go-west.png', category: 'game', delivery: 'roblox',
     externalUrl: 'https://www.roblox.com/ko/games/92155393757517/Go-West',
+    youtubeUrl: 'https://www.youtube.com/shorts/vMgVE88RHlU',
     controls: { ko: 'Roblox 기본 이동 조작으로 계단을 따라 올라가세요.', en: 'Use the standard Roblox movement controls to climb the course.' },
     engine: 'Roblox Studio', platform: 'Roblox · PC / Mobile', releaseDate: '2026-09-28', playable: true,
   },
