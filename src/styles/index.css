@@ -109,6 +109,9 @@
   .googleplay-stage .download-art { background: #1f2524; }
   .googleplay-stage .download-art img { padding: 1.5rem; }
   .googleplay-stage .download-copy { background: repeating-linear-gradient(135deg,var(--color-mint) 0 16px,#aab8a2 16px 18px); color: var(--color-ink); }
+  .video-showcase-stage { box-shadow: 8px 8px 0 var(--color-ink), 14px 14px 0 var(--color-coral); }
+  .video-showcase-stage .download-art { background: var(--color-ink); }
+  .video-showcase-stage .download-copy { background: repeating-linear-gradient(135deg,var(--color-yellow) 0 16px,#d89d38 16px 18px); }
   .project-content { @apply grid gap-5 md:grid-cols-2; }
   .project-about { @apply md:col-span-2; background: linear-gradient(105deg,var(--color-card) 0 82%,var(--color-yellow) 82%); }
   .project-about h2 { @apply mt-1 text-3xl uppercase; }
@@ -129,6 +132,7 @@
   .video-placeholder p { @apply mt-2 max-w-xl text-sm font-semibold text-card/70; }
   .video-player { @apply mt-6 aspect-video overflow-hidden border-[3px] border-ink bg-ink; box-shadow: 7px 7px 0 var(--color-pink); }
   .video-player iframe { @apply h-full w-full border-0; }
+  .video-player-short { aspect-ratio: 9 / 16; @apply mx-auto max-w-md; }
 }
 
 @media (max-width: 639px) {

@@ -2,6 +2,15 @@ import type { Game } from '../types'
 
 export const games: Game[] = [
   {
+    id: 'drill-hero', title: { ko: '드릴 히어로', en: 'Drill Hero' },
+    description: { ko: '드릴로 땅을 파고 몰려오는 적을 막아내는 굴착 디펜스 게임.', en: 'A digging defense game about drilling underground and holding back waves of enemies.' },
+    longDescription: { ko: '드릴로 지형을 파고 자원을 확보하면서 몰려오는 적을 방어하는 게임 프로젝트입니다. 굴착과 디펜스가 하나의 흐름으로 이어지는 플레이를 영상에서 확인해 보세요.', en: 'A game project where you drill through terrain, gather resources, and defend against incoming enemies. Watch the video to see how digging and defense connect into one gameplay loop.' },
+    thumbnail: 'thumbnails/drill-hero.svg', category: 'game', delivery: 'video',
+    youtubeUrl: 'https://www.youtube.com/shorts/jlB7BzUWfi8',
+    controls: { ko: '드릴로 땅을 파고 자원을 모아 방어하며 진행합니다.', en: 'Drill through the ground, collect resources, and defend your position.' },
+    engine: 'Game Project', platform: 'Video Showcase', playable: false,
+  },
+  {
     id: 'idle-merge-miner', title: { ko: '방치형 머지 광부', en: 'Idle Merge Miner' },
     description: { ko: '자동으로 광물을 캐고, 같은 광물을 합쳐 성장시키며 분쇄기로 코인을 버는 물리 기반 방치형 게임.', en: 'A physics-driven idle game about mining, merging minerals, and crushing them into coins.' },
     longDescription: { ko: '광물이 자동으로 생성되는 광산에서 같은 종류의 광물을 합쳐 더 높은 단계로 성장시키는 방치형 게임입니다. 성장한 광물을 분쇄기에 넣어 코인을 얻고, 채굴 속도와 힘을 강화하며 생산 흐름을 만들어 보세요.', en: 'An idle game where minerals are generated automatically and matching pieces merge into stronger tiers. Feed upgraded minerals into the crusher, earn coins, and improve mining speed and power to build a satisfying production loop.' },

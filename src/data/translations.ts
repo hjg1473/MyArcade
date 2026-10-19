@@ -21,6 +21,7 @@ export const translations = {
     featuredGames: 'FEATURED GAMES', previous: '이전 게임', next: '다음 게임', slideOf: '번째 슬라이드',
     playRoblox: 'Roblox에서 플레이', robloxGuide: 'Roblox 게임 페이지에서 플레이 버튼을 누르면 앱이 실행됩니다.',
     getGooglePlay: 'Google Play에서 받기', googlePlayGuide: 'Google Play 스토어에서 Android 기기에 설치할 수 있습니다.',
+    watchProject: '게임 영상 보기', showcaseGuide: '게임 플레이와 핵심 아이디어를 아래 영상에서 확인할 수 있습니다.',
     footer: '작은 게임, 큰 즐거움.', github: 'GitHub',
   },
   en: {
@@ -43,6 +44,7 @@ export const translations = {
     featuredGames: 'FEATURED GAMES', previous: 'Previous game', next: 'Next game', slideOf: 'slide',
     playRoblox: 'Play on Roblox', robloxGuide: 'Open the Roblox game page and press Play to launch the app.',
     getGooglePlay: 'Get it on Google Play', googlePlayGuide: 'Install the game on your Android device from Google Play.',
+    watchProject: 'Watch game video', showcaseGuide: 'See the gameplay and core concept in the video below.',
     footer: 'Small games, big fun.', github: 'GitHub',
   },
 } satisfies Record<Language, Record<string, string>>
