@@ -33,7 +33,7 @@ export function FeaturedCarousel({ games }: { games: Game[] }) {
         const mediaImage = videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : `${import.meta.env.BASE_URL}${game.thumbnail}`
         const isShort = game.youtubeUrl?.includes('/shorts/') ?? false
         return <article key={game.id} className={`featured-card featured-slide ${isShort ? 'featured-short' : ''}`} aria-hidden={index !== active}>
-          <div className="featured-backdrop" aria-hidden="true"><img src={mediaImage} alt="" /></div>
+          <div className="featured-backdrop" aria-hidden="true">{index === active && videoId ? <iframe src={getTrailerEmbedUrl(videoId, !reducedMotion)} title="" tabIndex={-1} allow="autoplay; encrypted-media" /> : <img src={mediaImage} alt="" />}</div>
           <div className="featured-media">{index === active && videoId ? <iframe src={getTrailerEmbedUrl(videoId, !reducedMotion)} title={`${game.title[language]} trailer`} allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /> : <img src={mediaImage} alt="" />}</div>
           <div className="featured-shade" aria-hidden="true" />
           <Badge tone={game.delivery === 'download' ? 'blue' : 'pink'} className="featured-sticker sticker-wiggle">★ {videoId ? 'WATCH TRAILER' : game.delivery === 'download' ? 'PC DOWNLOAD' : game.delivery === 'roblox' ? 'ROBLOX EXPERIENCE' : game.delivery === 'googleplay' ? 'ANDROID RELEASE' : 'PLAY ONLINE'}</Badge>
@@ -58,5 +58,5 @@ function getYouTubeId(url?: string) {
 
 function getTrailerEmbedUrl(videoId: string, autoplay: boolean) {
   const auto = autoplay ? '1' : '0'
-  return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${auto}&mute=1&loop=1&playlist=${videoId}&playsinline=1&rel=0`
+  return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${auto}&mute=1&loop=1&playlist=${videoId}&playsinline=1&controls=0&disablekb=1&rel=0`
 }

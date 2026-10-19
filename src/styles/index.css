@@ -191,9 +191,11 @@
   .featured-card:hover { transform: translate(-2px,-5px) rotate(-.35deg); box-shadow: 11px 13px 0 var(--color-ink); }
   .featured-backdrop { @apply absolute inset-0 -z-10 overflow-hidden bg-ink; }
   .featured-backdrop img { @apply h-full w-full scale-110 object-cover; filter: blur(24px) saturate(.82) brightness(.62); }
+  .featured-backdrop iframe { @apply pointer-events-none absolute left-1/2 top-1/2 border-0; width: 136%; height: 136%; transform: translate(-50%,-50%) scale(1.08); filter: blur(24px) saturate(.82) brightness(.52); }
+  .featured-short .featured-backdrop iframe { width: auto; height: 320%; aspect-ratio: 9 / 16; max-width: none; }
   .featured-media { @apply absolute inset-0 -z-[5] flex items-center justify-center overflow-hidden bg-transparent; }
   .featured-media img { @apply h-full w-full object-cover transition duration-300; }
-  .featured-media iframe { @apply h-full w-full border-0; }
+  .featured-media iframe { @apply pointer-events-none h-full w-full border-0; }
   .featured-short .featured-media { @apply justify-end pr-[12%]; }
   .featured-short .featured-media iframe { width: min(42%, 430px); }
   .featured-shade { @apply pointer-events-none absolute inset-0 -z-[1]; background: linear-gradient(90deg,rgba(27,24,23,.96) 0%,rgba(27,24,23,.82) 30%,rgba(27,24,23,.28) 58%,rgba(27,24,23,.12) 100%),linear-gradient(0deg,rgba(27,24,23,.72) 0%,transparent 48%); }
