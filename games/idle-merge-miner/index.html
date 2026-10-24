@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Idle Mining Prototype</title>
+    <link rel="stylesheet" href="src/styles.css?v=2" />
+  </head>
+  <body>
+    <main id="game-shell" aria-label="Idle mining game prototype">
+      <canvas id="game-canvas"></canvas>
+      <section class="hud" aria-label="Game status">
+        <div class="hud__title">Idle Mine Prototype</div>
+        <div class="hud__stat hud__stat--score">
+          <span>SCORE</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="hud__stat hud__stat--coins">
+          <span>COINS</span>
+          <strong id="coins">0</strong>
+        </div>
+        <div class="hud__stat">
+          <span>채굴한 돌</span>
+          <strong id="stone-count">0</strong>
+        </div>
+        <div class="hud__danger" aria-label="Danger timer">
+          <span>DANGER</span>
+          <div class="hud__danger-track">
+            <div id="danger-fill" class="hud__danger-fill"></div>
+          </div>
+        </div>
+      </section>
+      <aside id="upgrade-panel" class="upgrade-panel" aria-label="Upgrades">
+        <div class="upgrade-panel__title">UPGRADES</div>
+        <div id="upgrade-list" class="upgrade-list"></div>
+      </aside>
+      <section id="game-over-overlay" class="game-over" aria-label="Game over" hidden>
+        <div class="game-over__panel">
+          <h1>GAME OVER</h1>
+          <div class="game-over__score">
+            <span>SCORE</span>
+            <strong id="final-score">0</strong>
+          </div>
+          <button id="restart-button" type="button">RESTART</button>
+        </div>
+      </section>
+      <output id="debug-output" hidden></output>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>
+    <script type="module" src="src/game.js"></script>
+  </body>
+</html>

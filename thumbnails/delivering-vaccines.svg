@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Delivering Vaccines</title>
+  <desc id="desc">A retro game poster showing a helicopter carrying vaccines over a zombie outbreak.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#477B83"/><stop offset="1" stop-color="#A9C3B9"/></linearGradient>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#302B2A" opacity=".13"/></pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#sky)"/>
+  <rect width="1280" height="720" fill="url(#dots)"/>
+  <path d="M0 500Q170 440 330 505T650 500T980 488T1280 500V720H0Z" fill="#302B2A"/>
+  <path d="M0 558Q210 510 420 574T820 562T1280 550V720H0Z" fill="#D65A45" stroke="#302B2A" stroke-width="14"/>
+  <g transform="translate(550 255)">
+    <path d="M0 86Q34 0 150 4H330Q425 12 456 94L360 154H100Q20 148 0 86Z" fill="#E9B44C" stroke="#302B2A" stroke-width="17"/>
+    <path d="M280 18h105l70-74" fill="none" stroke="#302B2A" stroke-width="19" stroke-linecap="round"/>
+    <path d="M365-56h170" stroke="#302B2A" stroke-width="15" stroke-linecap="round"/>
+    <path d="M148 5V-58M52-58h210" stroke="#302B2A" stroke-width="15" stroke-linecap="round"/>
+    <path d="M48 62h110v67H72Q38 112 48 62Z" fill="#85C9D0" stroke="#302B2A" stroke-width="12"/>
+    <circle cx="118" cy="161" r="26" fill="#302B2A"/><circle cx="355" cy="159" r="26" fill="#302B2A"/>
+    <rect x="190" y="55" width="110" height="76" rx="8" fill="#F2E8D5" stroke="#302B2A" stroke-width="10"/>
+    <path d="M245 70v46M222 93h46" stroke="#D65A45" stroke-width="15" stroke-linecap="square"/>
+    <path d="M-5 101l-95 18" stroke="#302B2A" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="-116" cy="122" r="19" fill="#D65A45" stroke="#302B2A" stroke-width="10"/>
+  </g>
+  <g fill="#738B4E" stroke="#302B2A" stroke-width="11">
+    <path d="M130 610v-92q0-58 54-58t54 58v92Z"/><path d="M276 620v-76q0-52 49-52t49 52v76Z"/>
+    <path d="M1000 628v-92q0-58 54-58t54 58v92Z"/><path d="M1124 620v-70q0-50 47-50t47 50v70Z"/>
+  </g>
+  <g fill="#302B2A"><circle cx="163" cy="522" r="8"/><circle cx="202" cy="522" r="8"/><circle cx="311" cy="550" r="8"/><circle cx="340" cy="550" r="8"/><circle cx="1038" cy="540" r="8"/><circle cx="1070" cy="540" r="8"/></g>
+  <rect x="54" y="54" width="650" height="176" rx="8" fill="#F2E8D5" stroke="#302B2A" stroke-width="15" transform="rotate(-2 54 54)"/>
+  <text x="92" y="137" font-family="Impact,Arial Black,sans-serif" font-size="73" letter-spacing="3" fill="#302B2A">DELIVERING</text>
+  <text x="92" y="205" font-family="Impact,Arial Black,sans-serif" font-size="73" letter-spacing="3" fill="#D65A45">VACCINES</text>
+  <rect x="875" y="70" width="330" height="70" rx="7" fill="#D65A45" stroke="#302B2A" stroke-width="10" transform="rotate(3 875 70)"/>
+  <text x="919" y="116" font-family="monospace" font-size="25" font-weight="900" fill="#F2E8D5">WORK IN PROGRESS</text>
+  <path d="M430 342h100" stroke="#F2E8D5" stroke-width="9" stroke-dasharray="18 16"/>
+  <path d="M430 378h64" stroke="#F2E8D5" stroke-width="9" stroke-dasharray="18 16"/>
+  <rect x="17" y="17" width="1246" height="686" rx="13" fill="none" stroke="#302B2A" stroke-width="18"/>
+</svg>
