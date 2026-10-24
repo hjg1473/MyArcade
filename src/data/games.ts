@@ -12,6 +12,15 @@ export const games: Game[] = [
     engine: 'Game Project', platform: 'Video Showcase', playable: false,
   },
   {
+    id: 'delivering-vaccines', title: { ko: 'Delivering Vaccines', en: 'Delivering Vaccines' },
+    description: { ko: '헬리콥터를 조종해 좀비 지역을 돌파하고 백신을 전달하는 개발 중인 횡스크롤 액션 게임.', en: 'A work-in-progress side-scrolling action game about flying a helicopter through zombie territory to deliver vaccines.' },
+    longDescription: { ko: '백신을 싣고 출발한 헬리콥터를 조종해 좀비가 가득한 위험 지역을 횡단하는 횡스크롤 게임 프로젝트입니다. 비행 중 총으로 좀비를 공격할 수 있지만, 장애물이나 적과 충돌하면 헬기가 폭발합니다. 현재 개발 중인 프로젝트이며 영상에서 초기 플레이 모습을 확인할 수 있습니다.', en: 'A side-scrolling game project where you pilot a helicopter carrying vaccines across a dangerous zombie-filled area. You can shoot zombies during the flight, but colliding with enemies or obstacles destroys the helicopter. The project is still in development, and the video shows an early gameplay build.' },
+    thumbnail: 'thumbnails/delivering-vaccines.svg', category: 'game', delivery: 'video',
+    youtubeUrl: 'https://www.youtube.com/shorts/2lAQ9BEY1S0',
+    controls: { ko: '헬리콥터를 조종해 장애물을 피하고, 총을 발사해 좀비를 제거하며 백신을 목적지까지 운반합니다.', en: 'Pilot the helicopter around obstacles, shoot zombies, and carry the vaccines safely to the destination.' },
+    engine: 'Work in Progress', platform: 'Video Showcase', playable: false,
+  },
+  {
     id: 'idle-merge-miner', title: { ko: '방치형 머지 광부', en: 'Idle Merge Miner' },
     description: { ko: '자동으로 광물을 캐고, 같은 광물을 합쳐 성장시키며 분쇄기로 코인을 버는 물리 기반 방치형 게임.', en: 'A physics-driven idle game about mining, merging minerals, and crushing them into coins.' },
     longDescription: { ko: '광물이 자동으로 생성되는 광산에서 같은 종류의 광물을 합쳐 더 높은 단계로 성장시키는 방치형 게임입니다. 성장한 광물을 분쇄기에 넣어 코인을 얻고, 채굴 속도와 힘을 강화하며 생산 흐름을 만들어 보세요.', en: 'An idle game where minerals are generated automatically and matching pieces merge into stronger tiers. Feed upgraded minerals into the crusher, earn coins, and improve mining speed and power to build a satisfying production loop.' },
