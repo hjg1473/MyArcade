@@ -12,7 +12,7 @@ export const games: Game[] = [
     engine: 'Game Project', platform: 'Video Showcase', playable: false,
   },
   {
-    id: 'delivering-vaccines', title: { ko: 'Delivering Vaccines', en: 'Delivering Vaccines' },
+    id: 'delivering-vaccines', title: { ko: 'Vaccine Supply', en: 'Vaccine Supply' },
     description: { ko: '헬리콥터를 조종해 좀비 지역을 돌파하고 백신을 전달하는 개발 중인 횡스크롤 액션 게임.', en: 'A work-in-progress side-scrolling action game about flying a helicopter through zombie territory to deliver vaccines.' },
     longDescription: { ko: '백신을 싣고 출발한 헬리콥터를 조종해 좀비가 가득한 위험 지역을 횡단하는 횡스크롤 게임 프로젝트입니다. 비행 중 총으로 좀비를 공격할 수 있지만, 장애물이나 적과 충돌하면 헬기가 폭발합니다. 현재 개발 중인 프로젝트이며 영상에서 초기 플레이 모습을 확인할 수 있습니다.', en: 'A side-scrolling game project where you pilot a helicopter carrying vaccines across a dangerous zombie-filled area. You can shoot zombies during the flight, but colliding with enemies or obstacles destroys the helicopter. The project is still in development, and the video shows an early gameplay build.' },
     thumbnail: 'thumbnails/delivering-vaccines.png', category: 'game', delivery: 'video',
