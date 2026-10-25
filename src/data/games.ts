@@ -13,17 +13,18 @@ export const games: Game[] = [
   },
   {
     id: 'delivering-vaccines', title: { ko: 'Vaccine Supply', en: 'Vaccine Supply' },
-    description: { ko: '헬리콥터를 조종해 좀비 지역을 돌파하고 백신을 전달하는 개발 중인 횡스크롤 액션 게임.', en: 'A work-in-progress side-scrolling action game about flying a helicopter through zombie territory to deliver vaccines.' },
-    longDescription: { ko: '백신을 싣고 출발한 헬리콥터를 조종해 좀비가 가득한 위험 지역을 횡단하는 횡스크롤 게임 프로젝트입니다. 비행 중 총으로 좀비를 공격할 수 있지만, 장애물이나 적과 충돌하면 헬기가 폭발합니다. 현재 개발 중인 프로젝트이며 영상에서 초기 플레이 모습을 확인할 수 있습니다.', en: 'A side-scrolling game project where you pilot a helicopter carrying vaccines across a dangerous zombie-filled area. You can shoot zombies during the flight, but colliding with enemies or obstacles destroys the helicopter. The project is still in development, and the video shows an early gameplay build.' },
-    thumbnail: 'thumbnails/delivering-vaccines.png', category: 'game', delivery: 'video',
+    description: { ko: '헬리콥터를 조종해 좀비 지역을 돌파하고 백신을 전달하는 횡스크롤 액션 게임.', en: 'A side-scrolling action game about flying a helicopter through zombie territory to deliver vaccines.' },
+    longDescription: { ko: '백신을 싣고 출발한 헬리콥터를 조종해 좀비가 가득한 위험 지역을 횡단하는 횡스크롤 게임입니다. 비행 중 총으로 좀비를 공격하고 다양한 업그레이드를 선택할 수 있지만, 장애물이나 적과 충돌하면 헬기가 폭발합니다. Windows 빌드를 내려받아 직접 플레이하거나 트레일러에서 게임의 주요 장면을 확인해 보세요.', en: 'A side-scrolling game where you pilot a helicopter carrying vaccines across a dangerous zombie-filled area. Shoot zombies, choose upgrades during the flight, and avoid collisions that can destroy the helicopter. Download the Windows build to play it or watch the trailer for a look at the action.' },
+    thumbnail: 'thumbnails/delivering-vaccines.png', category: 'game', delivery: 'download',
+    downloadPath: 'downloads/vaccine-supply.zip', downloadFileName: 'Vaccine Supply.zip', downloadSize: '77.2 MB',
     gallery: [
       'screenshots/delivering-vaccines/upgrade-cards.png',
       'screenshots/delivering-vaccines/chain-explosion.png',
       'screenshots/delivering-vaccines/colony-tower.png',
     ],
     youtubeUrl: 'https://youtu.be/kRX7oOs7cl0',
-    controls: { ko: '헬리콥터를 조종해 장애물을 피하고, 총을 발사해 좀비를 제거하며 백신을 목적지까지 운반합니다.', en: 'Pilot the helicopter around obstacles, shoot zombies, and carry the vaccines safely to the destination.' },
-    engine: 'Work in Progress', platform: 'Video Showcase', playable: false,
+    controls: { ko: 'WASD: 비행 · 마우스 왼쪽: 조준 사격 · Space: 아래로 사격 · 좌우로 빠르게 흔들기: 매달린 좀비 떼어내기 · Esc: 일시정지', en: 'WASD: Fly · Left mouse: Aim and shoot · Space: Shoot downward · Zigzag quickly: Shake off hanging zombies · Esc: Pause' },
+    engine: 'Unity', platform: 'Windows', playable: false,
   },
   {
     id: 'idle-merge-miner', title: { ko: '방치형 머지 광부', en: 'Idle Merge Miner' },
