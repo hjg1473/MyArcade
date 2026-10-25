@@ -7,7 +7,7 @@ export const games: Game[] = [
     longDescription: { ko: '드릴로 지형을 파고 자원을 확보하면서 몰려오는 적을 방어하는 게임 프로젝트입니다. 굴착과 디펜스가 하나의 흐름으로 이어지는 플레이를 영상에서 확인해 보세요.', en: 'A game project where you drill through terrain, gather resources, and defend against incoming enemies. Watch the video to see how digging and defense connect into one gameplay loop.' },
     thumbnail: 'thumbnails/drill-hero-banner.png', category: 'game', delivery: 'video',
     gallery: ['screenshots/drill-hero/reward-vein.png', 'screenshots/drill-hero/defend-mine.png'], galleryPortrait: true,
-    youtubeUrl: 'https://www.youtube.com/shorts/jlB7BzUWfi8',
+    youtubeUrl: 'https://www.youtube.com/shorts/fn-BR4ZM_nI',
     controls: { ko: '드릴로 땅을 파고 자원을 모아 방어하며 진행합니다.', en: 'Drill through the ground, collect resources, and defend your position.' },
     engine: 'Game Project', platform: 'Video Showcase', playable: false,
   },
