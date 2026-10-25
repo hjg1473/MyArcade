@@ -32,7 +32,7 @@ export function FeaturedCarousel({ games }: { games: Game[] }) {
         const videoId = getYouTubeId(game.youtubeUrl)
         const mediaImage = videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : `${import.meta.env.BASE_URL}${game.thumbnail}`
         const isShort = game.youtubeUrl?.includes('/shorts/') ?? false
-        return <article key={game.id} className={`featured-card featured-slide ${isShort ? 'featured-short' : ''} ${game.id === 'drill-hero' ? 'featured-crop-video' : ''}`} aria-hidden={index !== active}>
+        return <article key={game.id} className={`featured-card featured-slide ${isShort ? 'featured-short' : ''}`} aria-hidden={index !== active}>
           <div className="featured-backdrop" aria-hidden="true">{index === active && videoId ? <iframe src={getTrailerEmbedUrl(videoId, !reducedMotion)} title="" tabIndex={-1} allow="autoplay; encrypted-media" /> : <img src={mediaImage} alt="" />}</div>
           <div className="featured-media">{index === active && videoId ? <div className="featured-player-frame"><iframe src={getTrailerEmbedUrl(videoId, !reducedMotion)} title={`${game.title[language]} trailer`} allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /></div> : <img src={mediaImage} alt="" />}</div>
           <div className="featured-shade" aria-hidden="true" />
