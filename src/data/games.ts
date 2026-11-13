@@ -2,6 +2,24 @@ import type { Game } from '../types'
 
 export const games: Game[] = [
   {
+    id: 'keep-it-balanced', title: { ko: 'Keep It Balanced!', en: 'Keep It Balanced!' },
+    description: { ko: '재료의 흐름과 배율을 조절해 저울의 균형을 맞추는 모바일 퍼즐 게임.', en: 'A mobile puzzle game about controlling flows and multipliers to keep the scale balanced.' },
+    longDescription: { ko: '위에서 쏟아지는 두 재료의 경로와 배율을 읽고, 양쪽 접시에 정확한 양이 담기도록 균형을 맞추는 퍼즐 게임입니다. 장애물과 분기 장치를 활용해 흐름을 바꾸고, 저울을 수평으로 만들어 각 레벨의 목표를 달성해 보세요. Android 기기에서 Google Play를 통해 설치할 수 있습니다.', en: 'A puzzle game where you read the paths and multipliers of two falling materials, then guide the right amount into each pan. Redirect the flow through obstacles and splitters, level the scale, and complete each stage. The game is available for Android through Google Play.' },
+    thumbnail: 'thumbnails/keep-it-balanced.png', category: 'game', delivery: 'googleplay',
+    gallery: [
+      'screenshots/keep-it-balanced/screenshot-01.png',
+      'screenshots/keep-it-balanced/screenshot-02.png',
+      'screenshots/keep-it-balanced/screenshot-03.png',
+      'screenshots/keep-it-balanced/screenshot-04.png',
+      'screenshots/keep-it-balanced/screenshot-05.png',
+    ],
+    galleryPortrait: true,
+    externalUrl: 'https://play.google.com/store/apps/details?id=com.hygeonstudio.loangame&hl=ko',
+    youtubeUrl: 'https://www.youtube.com/watch?v=OTW7X4Fdg-Y',
+    controls: { ko: '터치로 장치와 경로를 조절해 두 접시에 재료를 나누고 저울의 균형을 맞춥니다.', en: 'Use touch controls to adjust devices and paths, split the materials between both pans, and balance the scale.' },
+    engine: 'Unity', platform: 'Android · Google Play', playable: true,
+  },
+  {
     id: 'drill-hero', title: { ko: '드릴 히어로', en: 'Drill Hero' },
     description: { ko: '드릴로 땅을 파고 몰려오는 적을 막아내는 굴착 디펜스 게임.', en: 'A digging defense game about drilling underground and holding back waves of enemies.' },
     longDescription: { ko: '드릴로 지형을 파고 자원을 확보하면서 몰려오는 적을 방어하는 게임 프로젝트입니다. 굴착과 디펜스가 하나의 흐름으로 이어지는 플레이를 영상에서 확인해 보세요.', en: 'A game project where you drill through terrain, gather resources, and defend against incoming enemies. Watch the video to see how digging and defense connect into one gameplay loop.' },
