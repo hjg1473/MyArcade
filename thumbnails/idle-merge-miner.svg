@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#252a35"/><stop offset="1" stop-color="#11141b"/></linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#ffffff" opacity=".07"/></pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/><rect width="800" height="450" fill="url(#dots)"/>
+  <path d="M0 356h800v94H0z" fill="#343b46"/><path d="M590 178h170v210H590z" fill="#596270" stroke="#f2e8d5" stroke-width="8"/><path d="m610 178 45 70h40l45-70" fill="#181d26" stroke="#f2e8d5" stroke-width="8"/>
+  <g stroke="#302b2a" stroke-width="8"><circle cx="630" cy="292" r="31" fill="#e9b44c"/><circle cx="715" cy="292" r="31" fill="#d65a45"/></g>
+  <g><circle cx="310" cy="320" r="38" fill="#8a929f" stroke="#f2e8d5" stroke-width="6"/><circle cx="395" cy="292" r="49" fill="#e9b44c" stroke="#f2e8d5" stroke-width="6"/><circle cx="500" cy="330" r="30" fill="#477b83" stroke="#f2e8d5" stroke-width="6"/></g>
+  <g transform="translate(120 160)"><circle cx="58" cy="45" r="38" fill="#ffd35a" stroke="#302b2a" stroke-width="8"/><path d="M25 82h68l20 135H5z" fill="#d65a45" stroke="#302b2a" stroke-width="8"/><path d="m92 98 76-70" stroke="#d5dce8" stroke-width="13"/><path d="m143 18 39 27" stroke="#d5dce8" stroke-width="13"/></g>
+  <rect x="35" y="28" width="520" height="92" fill="#e9b44c" stroke="#f2e8d5" stroke-width="7"/>
+  <text x="57" y="83" fill="#302b2a" font-family="Arial Black,Arial,sans-serif" font-size="43" font-weight="900">IDLE MERGE MINER</text>
+  <text x="58" y="108" fill="#302b2a" font-family="monospace" font-size="16" font-weight="700">MINE · MERGE · CRUSH · UPGRADE</text>
+</svg>

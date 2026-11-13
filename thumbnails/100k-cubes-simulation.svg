@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">100K Cubes Simulation</title><desc id="desc">A retro print illustration of a large field of falling cubes.</desc>
+  <defs><pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#302B2A" opacity=".18"/></pattern><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#477B83"/><stop offset="1" stop-color="#315760"/></linearGradient></defs>
+  <rect width="1280" height="720" fill="url(#sky)"/><rect width="1280" height="720" fill="url(#dots)"/>
+  <path d="M0 520 1280 390v330H0z" fill="#E9B44C" stroke="#302B2A" stroke-width="12"/>
+  <g stroke="#302B2A" stroke-width="7">
+    <g fill="#D65A45"><path d="m160 135 72-28 70 42-72 30z"/><path d="m160 135 70 44v78l-70-44z"/><path d="m230 179 72-30v78l-72 30z"/></g>
+    <g fill="#F2E8D5"><path d="m405 245 58-23 58 34-59 25z"/><path d="m405 245 57 36v62l-57-36z"/><path d="m462 281 59-25v62l-59 25z"/></g>
+    <g fill="#E9B44C"><path d="m790 105 86-34 84 50-86 36z"/><path d="m790 105 84 52v92l-84-53z"/><path d="m874 157 86-36v92l-86 36z"/></g>
+    <g fill="#D65A45"><path d="m1005 285 64-25 64 38-65 27z"/><path d="m1005 285 63 40v68l-63-40z"/><path d="m1068 325 65-27v68l-65 27z"/></g>
+  </g>
+  <g fill="#302B2A"><circle cx="345" cy="120" r="9"/><circle cx="585" cy="170" r="7"/><circle cx="690" cy="85" r="10"/><circle cx="1140" cy="150" r="8"/></g>
+  <rect x="62" y="498" width="760" height="150" fill="#F2E8D5" stroke="#302B2A" stroke-width="10"/><text x="98" y="573" fill="#302B2A" font-family="Arial Black, sans-serif" font-size="68" font-weight="900">100K CUBES</text><text x="100" y="620" fill="#D65A45" font-family="monospace" font-size="30" font-weight="700">GPU COLLISION SIMULATION / WINDOWS</text>
+  <g transform="translate(1015 525) rotate(-7)"><circle cx="75" cy="75" r="72" fill="#D65A45" stroke="#302B2A" stroke-width="9"/><text x="75" y="66" text-anchor="middle" fill="#F2E8D5" font-family="Arial Black,sans-serif" font-size="25">PC</text><text x="75" y="101" text-anchor="middle" fill="#F2E8D5" font-family="Arial Black,sans-serif" font-size="25">BUILD</text></g>
+</svg>
